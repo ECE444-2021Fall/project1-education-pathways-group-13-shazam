@@ -1,10 +1,11 @@
 .container {
-    @apply min-h-screen flex flex-col px-4;
+    @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
     background-color: #E8EEF2;
+    min-width: 850px;
 }
 
 .topbar {
-    @apply clear-both;
+    @apply clear-both px-4;
 }
 
 .appname {
@@ -24,14 +25,12 @@
 }
 
 .grid {
-    @apply inline-block align-top justify-center items-center flex-wrap flex;
+    @apply inline-block align-top justify-center items-center flex-wrap flex z-10;
 }
 
 .card {
     @apply rounded-2xl p-6 bg-white bg-opacity-75 w-4/12;
 }
-
-
 
 .card h1 {
   @apply text-4xl font-bold;
@@ -41,7 +40,46 @@
   @apply text-lg;
 }
 
-.btn {
-    @apply py-2 px-4 font-semibold rounded-2xl border border-black bg-transparent hover:bg-blue-200;
+#earth {
+    @apply absolute;
+    top: 15%;
+    left: 34%;
+}
+
+#galaxy1 {
+    @apply absolute;
+    top: 32%;
+    left: 44%;
+}
+
+#ship {
+    @apply absolute;
+    top: 10%;
+    left: 81%;
+}
+
+#galaxy2 {
+    @apply absolute;
+    top: 7%;
+    left: 0%;
+}
+
+#planet1 {
+    @apply absolute;
+    top: 31%;
+    left: 96%;
+}
+
+#planet2 {
+    @apply absolute;
+    top: 47%;
+    left: 15%;
+}
+
+#ground {
+    @apply absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45%;
 }
 

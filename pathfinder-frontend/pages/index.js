@@ -18,10 +18,15 @@ export default function Home() {
                 </div>
             </div>
             <main className={styles.main}>
-            
+                <div id={styles.earth}><Image src="/earth.svg" width={153} height={130}/></div>
+                <div id={styles.galaxy1}><Image src="/galaxy1.svg" width={152} height={168}/></div>
+                <div id={styles.ship}><Image src="/ship.svg" width={189} height={142}/></div>
+                <div id={styles.galaxy2}><Image src="/galaxy2.svg" width={175} height={349}/></div>
+                <div id={styles.planet1}><Image src="/planet1.svg" width={85} height={153}/></div>
+                <div id={styles.planet2}><Image src="/planet2.png" width={211} height={219}/></div>
+                <div id={styles.ground}><Image src="/ground.svg" layout="fill"/></div>
                 <div className={styles.grid}>
                     <Image src="/rover.svg" width={553} height={494} />
-
                     <div className={styles.card}>
                         <h1>Selecting courses is hard...</h1>
                         <br/>
@@ -35,7 +40,7 @@ export default function Home() {
                         </p>
                         <br/>
                         <Link href="/signup">
-                            <button className={styles.btn}>Get Started</button>
+                            <button>Get Started</button>
                         </Link>
                     </div>
                 </div>
