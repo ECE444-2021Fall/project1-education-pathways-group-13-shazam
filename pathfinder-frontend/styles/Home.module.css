@@ -67,7 +67,7 @@
 #planet1 {
     @apply absolute;
     top: 31%;
-    left: 96%;
+    right: 0%;
 }
 
 #planet2 {

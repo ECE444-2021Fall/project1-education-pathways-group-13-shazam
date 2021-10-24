@@ -23,7 +23,7 @@ export default function Home() {
                 <div id={styles.ship}><Image src="/ship.svg" width={189} height={142}/></div>
                 <div id={styles.galaxy2}><Image src="/galaxy2.svg" width={175} height={349}/></div>
                 <div id={styles.planet1}><Image src="/planet1.svg" width={85} height={153}/></div>
-                <div id={styles.planet2}><Image src="/planet2.png" width={211} height={219}/></div>
+                <div id={styles.planet2}><Image src="/planet2.svg" width={211} height={219}/></div>
                 <div id={styles.ground}><Image src="/ground.svg" layout="fill"/></div>
                 <div className={styles.grid}>
                     <Image src="/rover.svg" width={553} height={494} />
