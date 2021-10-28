@@ -8,9 +8,9 @@ flask = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
-psycopg2 = "*"
 sqlalchemy-cockroachdb = "*"
 flask-bcrypt = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 black = "*"

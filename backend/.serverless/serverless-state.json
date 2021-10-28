@@ -220,7 +220,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/pathways-backend/dev/1635114746814-2021-10-24T22:32:26.814Z/pathways-backend.zip"
+                "S3Key": "serverless/pathways-backend/dev/1635455736654-2021-10-28T21:15:36.654Z/pathways-backend.zip"
               },
               "Handler": "s_app.handler",
               "Runtime": "python3.8",
@@ -238,14 +238,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionXpWWDOaiCvK8lOtl8qf1atN33xMDo0NIIQ8CAF0BI": {
+          "AppLambdaVersionD57ShL8Dc6WdWoQPJqiXbs9kFJjwyfsU0HL0BjqKB4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "M1d8aPckGN+uF3TuLoeOGxXV9FOhB2cdB0GTi3rFkKI="
+              "CodeSha256": "A9oKFqkqQRsaede0mrWH2W8RpI/jpyZOMkDyWwFki6o="
             }
           },
           "ApiGatewayRestApi": {
@@ -370,7 +370,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1635114739601": {
+          "ApiGatewayDeployment1635455687831": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -529,7 +529,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/pathways-backend/dev/1635114746814-2021-10-24T22:32:26.814Z/custom-resources.zip"
+                "S3Key": "serverless/pathways-backend/dev/1635455736654-2021-10-28T21:15:36.654Z/custom-resources.zip"
               },
               "FunctionName": "pathways-backend-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -591,7 +591,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionXpWWDOaiCvK8lOtl8qf1atN33xMDo0NIIQ8CAF0BI"
+              "Ref": "AppLambdaVersionD57ShL8Dc6WdWoQPJqiXbs9kFJjwyfsU0HL0BjqKB4"
             },
             "Export": {
               "Name": "sls-pathways-backend-dev-AppLambdaFunctionQualifiedArn"
@@ -745,7 +745,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionXpWWDOaiCvK8lOtl8qf1atN33xMDo0NIIQ8CAF0BI"
+        "versionLogicalId": "AppLambdaVersionD57ShL8Dc6WdWoQPJqiXbs9kFJjwyfsU0HL0BjqKB4"
       }
     },
     "configValidationMode": "warn",
@@ -779,7 +779,7 @@
     "artifact": "/Users/yanchen/projects/pathfinder/backend/.serverless/pathways-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/pathways-backend/dev/1635114746814-2021-10-24T22:32:26.814Z",
+    "artifactDirectoryName": "serverless/pathways-backend/dev/1635455736654-2021-10-28T21:15:36.654Z",
     "artifact": "pathways-backend.zip"
   }
 }
