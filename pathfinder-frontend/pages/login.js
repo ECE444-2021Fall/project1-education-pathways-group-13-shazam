@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function Login() {
     const login = (event) => {
         event.preventDefault();
-        alert("Hello " + event.target.email.value + "! The login function has not been implemented yet.");
+        alert("Hello " + document.getElementById("email").value + "! The login function has not been implemented yet.");
     }
     
     return (
@@ -40,8 +40,8 @@ export default function Login() {
                             <input id="password" type="password" placeholder="Password" size="35" required />
                             <br/>
                             <div className={styles.button_bar}>
-                                <button className={styles.form_login} type="submit">Log In</button>
-                                <Link href="/signup"><button className={styles.form_signup}>Sign Up</button></Link>
+                                <button className={styles.form_left} type="submit">Log In</button>
+                                <Link href="/signup"><button className={styles.form_right}>Sign Up</button></Link>
                             </div>
                         </form>
                     </div>

@@ -11,13 +11,12 @@ export default function Signup() {
         
         if (password.value !== confirmPassword.value) {
             document.getElementById("password-mismatch").innerHTML = "The passwords did not match.";
-            confirmPassword.setCustomValidity("The passwords did not match.");
         } else {
             let fieldAlerts = document.getElementsByClassName(styles.field_alert);
             for (let i = 0; i < fieldAlerts.length; i++) {
                 fieldAlerts[i].innerHTML = "";
             }
-            alert("Welcome " + event.target.name.value + "! The signup function has not been implemented yet.");
+            alert("Welcome " + document.getElementById("first-name").value + "! The signup function has not been implemented yet.");
         }
     }
     
@@ -47,21 +46,23 @@ export default function Signup() {
                         <h1>Get Started</h1>
                         <br/>
                         <form onSubmit={signup}>
-                            <fieldset>
-                                <input id="name" type="text" placeholder="Display Name" size="35" required />
+                                <div className={styles.field_bar}>
+                                    <input id="first-name" className={styles.form_left} type="text" placeholder="First Name" size="13" required />
+                                    <input id="last-name" className={styles.form_right} type="text" placeholder="Last Name" size="13" required />
+                                </div>
                                 <br/>
                                 <input id="email" type="email" placeholder="Email" size="35" required />
                                 <br/>
-                                <input id="password" type="password" placeholder="Password" size="35" pattern=".{8,}" required title="8 characters minimum"/>
-                                <br/>
-                                <div id="password-mismatch" className={styles.field_alert}></div>
-                                <input id="confirm-password" type="password" placeholder="Confirm Password" size="35" required />
+                                <div className={styles.field_bar}>
+                                    <div id="password-mismatch" className={styles.field_alert}></div>
+                                    <input id="password" className={styles.form_left} type="password" placeholder="Password" size="13" pattern=".{8,}" required title="8 characters minimum"/>
+                                    <input id="confirm-password" className={styles.form_right} type="password" placeholder="Confirm Password" size="13" required />
+                                </div>
                                 <br/>
                                 <div className={styles.button_bar}>
-                                    <Link href="/login"><button className={styles.form_login} type="button">Already have an account</button></Link>
-                                    <button className={styles.form_signup} type="submit">Sign Up</button>
+                                    <Link href="/login"><button className={styles.form_left} type="button">Already have an account</button></Link>
+                                    <button className={styles.form_right} type="submit">Sign Up</button>
                                 </div>
-                            </fieldset>
                         </form>
                     </div>
                 </div>

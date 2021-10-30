@@ -37,11 +37,11 @@
     @apply clear-both my-10;
 }
 
-.form_login {
+.form_left {
     @apply float-left;
 }
 
-.form_signup {
+.form_right {
     @apply float-right;
 }
 

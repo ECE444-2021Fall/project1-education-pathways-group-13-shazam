@@ -37,15 +37,19 @@
     @apply text-sm text-red-400 text-left
 }
 
+.field_bar {
+    @apply clear-both;
+}
+
 .button_bar {
     @apply clear-both my-10;
 }
 
-.form_login {
+.form_left {
     @apply float-left;
 }
 
-.form_signup {
+.form_right{
     @apply float-right;
 }
 
