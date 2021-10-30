@@ -33,6 +33,10 @@
     @apply text-xl p-3 mb-5;
 }
 
+.field_alert {
+    @apply text-sm text-red-400 text-left
+}
+
 .button_bar {
     @apply clear-both my-10;
 }

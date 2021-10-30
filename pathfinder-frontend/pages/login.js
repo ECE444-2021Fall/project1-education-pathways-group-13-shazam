@@ -32,11 +32,10 @@ export default function Login() {
                 <div id={styles.ground}><Image src="/ground.svg" layout="fill"/></div>
                 <div className={styles.grid}>
                     <div className={styles.card}>
-                        <h1>Get Started</h1>
+                        <h1>Welcome Back</h1>
                         <br/>
                         <form onSubmit={login}>
                             <input id="email" type="email" placeholder="Email" size="35" required />
-                            <br/>
                             <br/>
                             <input id="password" type="password" placeholder="Password" size="35" required />
                             <br/>
