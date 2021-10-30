@@ -13,7 +13,7 @@ def create_user():
     user_data = request.get_json()
 
     # Make sure all required fields are present
-    required_fields = ["name", "email", "password"]
+    required_fields = ["first_name", "last_name", "email", "password"]
     missing_fields = []
 
     for field in required_fields:
@@ -35,7 +35,8 @@ def create_user():
 
     # Create user
     new_user = User(
-        name=user_data["name"],
+        first_name=user_data["first_name"],
+        last_name=user_data["last_name"],
         email=user_data["email"],
         password=hashed_password,
     )
