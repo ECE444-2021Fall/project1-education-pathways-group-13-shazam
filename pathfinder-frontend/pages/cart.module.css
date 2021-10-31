@@ -1,0 +1,43 @@
+.header {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.headerContainer {
+    max-width: 1090px;
+    width: 73%;
+    margin: 0 auto;
+}
+
+.containerWrapper {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 5px;
+    border: 1px solid black;
+    /* height: 100px; */
+    max-width: 1100px;
+    width: 75%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.card {
+    margin-top: 5px;
+    border: 1px solid black;
+    height: 300px;
+    max-width: 1100px;
+    margin: 20px auto;
+    width: 95%;
+}
+
+.cartText {
+    font-size: 32px;
+    font-family:"Work Sans";
+    font-weight: bold;
+}
