@@ -27,4 +27,3 @@ button {
 button[type=submit] {
     @apply text-white bg-blue-500 hover:bg-blue-400;
 }
-
