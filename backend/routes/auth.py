@@ -4,8 +4,9 @@ from flask import Blueprint, abort, jsonify, request
 from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
-    get_jwt_identity,
+    current_user,
     jwt_required,
+    set_access_cookies,
     set_refresh_cookies,
 )
 from models.user import User
@@ -31,7 +32,6 @@ def login():
 
     required_fields = ["email", "password"]
     missing_fields = [field for field in required_fields if field not in login_data]
-
     if missing_fields:
         abort(HTTPStatus.UNAUTHORIZED, f"Missing fields: {missing_fields}")
 
@@ -54,9 +54,9 @@ def login():
             "email": db_user.email,
             "first_name": db_user.first_name,
             "last_name": db_user.last_name,
-            "access_token": access_token,
         }
     )
+    set_access_cookies(response, access_token)
     set_refresh_cookies(response, refresh_token)
 
     return response, HTTPStatus.OK
@@ -65,6 +65,7 @@ def login():
 @auth.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)
 def refresh():
-    identity = get_jwt_identity()
-    access_token = create_access_token(identity=identity)
-    return jsonify(access_token=access_token), HTTPStatus.OK
+    access_token = create_access_token(identity=current_user)
+    response = jsonify({"msg": "ok"})
+    set_access_cookies(response, access_token)
+    return response, HTTPStatus.OK

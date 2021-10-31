@@ -3,7 +3,6 @@ from http import HTTPStatus
 from database.database import db
 from flask import Blueprint, Response, abort, request
 from models.user import User
-from utils.bcrypt import bcrypt
 
 user = Blueprint("user", __name__)
 
@@ -15,7 +14,6 @@ def create_user():
     # Make sure all required fields are present
     required_fields = ["first_name", "last_name", "email", "password"]
     missing_fields = [field for field in required_fields if field not in user_data]
-
     if missing_fields:
         abort(HTTPStatus.BAD_REQUEST, f"Missing fields: {missing_fields}")
 
