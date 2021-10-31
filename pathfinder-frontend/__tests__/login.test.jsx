@@ -6,8 +6,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Login from '../pages/login';
 
-// Test case by Daniel Liang
 describe('Login Page', () => {
+    // Test case by Daniel Liang
     it('renders the login form heading', () => {
         render(<Login />);
 
