@@ -14,24 +14,18 @@ def create_user():
 
     # Make sure all required fields are present
     required_fields = ["first_name", "last_name", "email", "password"]
-    missing_fields = []
-
-    for field in required_fields:
-        if field not in user_data:
-            missing_fields.append(field)
+    missing_fields = [field for field in required_fields if field not in user_data]
 
     if missing_fields:
         abort(HTTPStatus.BAD_REQUEST, f"Missing fields: {missing_fields}")
 
     # Make sure email is unique
-    existing_user = User.query.filter_by(email=user_data["email"]).first()
+    existing_user = User.query.filter_by(email=user_data["email"]).one_or_none()
     if existing_user:
         abort(HTTPStatus.BAD_REQUEST, "User with that email already exists")
 
     # Hash password
-    hashed_password = bcrypt.generate_password_hash(user_data["password"]).decode(
-        "utf-8"
-    )
+    hashed_password = User.hash_password(user_data["password"])
 
     # Create user
     new_user = User(

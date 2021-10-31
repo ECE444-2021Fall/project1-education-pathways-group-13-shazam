@@ -11,13 +11,14 @@ python-dotenv = "*"
 sqlalchemy-cockroachdb = "*"
 flask-bcrypt = "*"
 psycopg2-binary = "*"
+flask-jwt-extended = "*"
 
 [dev-packages]
-black = "*"
 isort = "*"
 pandas = "*"
 networkx = "*"
 tqdm = "*"
+black = "*"
 
 [requires]
 python_version = "3.8"
