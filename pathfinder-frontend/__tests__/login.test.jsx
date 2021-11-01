@@ -2,9 +2,10 @@
  * @jest-environment jsdom
  */
 
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import Login from '../pages/login';
+import React from 'react';
 
 describe('Login Page', () => {
     // Test case by Daniel Liang

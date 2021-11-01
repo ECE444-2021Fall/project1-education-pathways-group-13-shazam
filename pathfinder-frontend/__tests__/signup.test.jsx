@@ -2,8 +2,9 @@
  * @jest-environment jsdom
  */
 
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
 import Signup from '../pages/signup';
 
 describe('Signup Page', () => {
@@ -41,6 +42,17 @@ describe('Signup Page', () => {
         // An alert should appear above the password fields
         const passwordAlert = screen.getByText('The passwords did not match.');
         expect(passwordAlert).toBeInTheDocument();
+    });
+
+    // Test case by Yanchen Ma
+    it('renders the signup button', () => {
+        render(<Signup />);
+
+        const button = screen.getByRole('button', {
+            name: /Sign Up/i,
+        });
+
+        expect(button).toBeInTheDocument();
     });
 });
 
