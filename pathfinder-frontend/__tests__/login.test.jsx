@@ -17,5 +17,14 @@ describe('Login Page', () => {
 
         expect(heading).toBeInTheDocument();
     });
+
+    // Test case by Krishna Solanki
+    it('should render input for username as textbox', () => {
+        render(<Login />);
+        const input = screen.getByRole('textbox');
+        console.log(input);
+
+        expect(input).toBeInTheDocument();
+    });
 });
 
