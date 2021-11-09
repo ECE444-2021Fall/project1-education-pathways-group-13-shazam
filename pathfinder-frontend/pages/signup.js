@@ -106,7 +106,7 @@ export default function Signup() {
               </div>
               <br />
               <div className={styles.button_bar}>
-                <Link href="/login">
+                <Link href="/login" passHref>
                   <button className={styles.form_left} type="button">
                     Already have an account
                   </button>

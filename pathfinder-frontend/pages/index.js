@@ -44,7 +44,7 @@ export default function Home() {
           <Image src="/ground.svg" alt="ground" layout="fill" />
         </div>
         <div className={styles.grid}>
-          <Image src="/rover.svg" width={553} height={494} />
+          <Image src="/rover.svg" alt="rover" width={553} height={494} />
           <div className={styles.card}>
             <h1>Selecting courses is hard...</h1>
             <br />
