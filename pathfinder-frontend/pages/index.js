@@ -23,25 +23,25 @@ export default function Home() {
       </div>
       <main className={styles.main}>
         <div id={styles.earth}>
-          <Image src="/earth.svg" width={153} height={130} />
+          <Image src="/earth.svg" alt="earth" width={153} height={130} />
         </div>
         <div id={styles.galaxy1}>
-          <Image src="/galaxy1.svg" width={152} height={168} />
+          <Image src="/galaxy1.svg" alt="galaxy" width={152} height={168} />
         </div>
         <div id={styles.ship}>
-          <Image src="/ship.svg" width={189} height={142} />
+          <Image src="/ship.svg" alt="ship" width={189} height={142} />
         </div>
         <div id={styles.galaxy2}>
-          <Image src="/galaxy2.svg" width={175} height={349} />
+          <Image src="/galaxy2.svg" alt="galaxy" width={175} height={349} />
         </div>
         <div id={styles.planet1}>
-          <Image src="/planet1.svg" width={85} height={153} />
+          <Image src="/planet1.svg" alt="planet" width={85} height={153} />
         </div>
         <div id={styles.planet2}>
-          <Image src="/planet2.svg" width={211} height={219} />
+          <Image src="/planet2.svg" alt="planet" width={211} height={219} />
         </div>
         <div id={styles.ground}>
-          <Image src="/ground.svg" layout="fill" />
+          <Image src="/ground.svg" alt="ground" layout="fill" />
         </div>
         <div className={styles.grid}>
           <Image src="/rover.svg" width={553} height={494} />
@@ -55,7 +55,7 @@ export default function Home() {
             <br />
             <p>Use PathFinder and save your time and energy for the important things in life!</p>
             <br />
-            <Link href="/signup">
+            <Link href="/signup" passHref>
               <button>Get Started</button>
             </Link>
           </div>
