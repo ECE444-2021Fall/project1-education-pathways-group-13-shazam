@@ -31,7 +31,7 @@ export default function Home() {
                         <h1>Selecting courses is hard...</h1>
                         <br/>
                         <p>
-                            Between checking graduation eligibility, balancing workloads and checking prequistes; 
+                            Between checking graduation eligibility, balancing workloads and checking prequisites; 
                             course selection can feel like rocket science. 
                         </p>
                         <br/>
