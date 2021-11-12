@@ -9,7 +9,7 @@
 }
 
 .grid {
-    @apply w-8/12 inline-block align-top justify-start items-start flex-wrap flex z-10 py-10;
+    @apply w-8/12 inline-block align-top justify-start items-start flex-wrap flex py-10;
 }
 
 .card {
@@ -37,5 +37,5 @@
 }
 
 .rightbar {
-    @apply w-8/12 rounded-2xl border-solid border-black border;
+    @apply w-7/12 rounded-2xl border-solid border-black border;
 }

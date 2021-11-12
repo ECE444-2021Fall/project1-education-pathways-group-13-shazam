@@ -1,5 +1,5 @@
-import styles from './navbar.module.css';
-
+import styles from '../styles/Navbar.module.css';
+import Link from 'next/link';
 
 function NavBar() {
     return (
@@ -7,32 +7,21 @@ function NavBar() {
             <div className={styles.header}>
                 <div className={styles.navbar}>
                     <div className={styles.sectionA}>
-                        <div className={styles.sectionA1}>
-                            <div className={styles.titleText}>
-                                PathFinder
-                            </div>
+                        <div className={styles.titleText}>
+                            <Link href="/">PathFinder</Link>
                         </div>
-                        <div className={styles.sectionA2}>
-                            <button className={styles.explore}>
-                                <span className={styles.exploretext}>
-                                    Explore
-                                </span>
-                            </button>
-                        </div>
-                        <div className={styles.sectionA3}>
-                            <input className={styles.searchbar}/>
-                            <button className={styles.searchicon}>
-                                <div>I</div>
-                            </button>
+                        <div className={styles.searching}>
+                            <button className={styles.explore}>Explore</button>
+                            <form>
+                                <input className={styles.searchbar} placeholder="Search courses..."/>
+                                <button className={styles.searchicon}>🔍</button>
+                            </form>
                         </div>
                     </div>
                     <div className={styles.sectionB}>
-                        <div className={styles.sectionB1}>
-                            cart
-                        </div>
-                        <div className={styles.sectionB2}>
-                            profile
-                        </div>
+                        <Link href="/cart"><a>Cart</a></Link>
+                        <Link href="/profile"><a>Profile</a></Link>
+                        <Link href="/"><a>Log Out</a></Link>
                     </div>
                 </div>
             </div>
@@ -40,4 +29,5 @@ function NavBar() {
     )
 }
 
-export default NavBar; 
+export default NavBar;
+
