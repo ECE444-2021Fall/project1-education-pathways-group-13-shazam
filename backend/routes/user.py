@@ -2,6 +2,8 @@ from http import HTTPStatus
 
 from database.database import db
 from flask import Blueprint, Response, abort, request
+from flask.json import jsonify
+from flask_jwt_extended import current_user, jwt_required
 from models.user import User
 
 user = Blueprint("user", __name__)
@@ -36,3 +38,15 @@ def create_user():
     db.session.commit()
 
     return Response(status=HTTPStatus.CREATED)
+
+
+@user.route("/", methods=["GET"])
+@jwt_required()
+def get_authenticated_user():
+    return jsonify(
+        {
+            "email": current_user.email,
+            "first_name": current_user.first_name,
+            "last_name": current_user.last_name,
+        }
+    )
