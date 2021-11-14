@@ -1,0 +1,170 @@
+.header {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.headerContainer {
+    max-width: 1090px;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.containerWrapper {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+    height: 550px;
+    max-width: 1110px;
+}
+
+.containerA {
+    margin-top: 5px;
+    border-right: 1px solid black;
+    /* height: 100px; */
+    max-width: 1100px;
+    width: 35%;
+    margin: 0 auto;
+    align-items: center;
+    /* overflow: auto; */
+}
+
+.containerA1 {
+    margin-top: 5px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    /* height: 100px; */
+    max-width: 1100px;
+    /* width: 35%; */
+    height: 8%;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    /* overflow: auto; */
+}
+
+.a1Text {
+    font-size: 18px;
+    font-family:"Work Sans";
+    font-weight: bold;
+}
+
+.containerA2 {
+    margin-top: 5px;
+    border-right: 1px solid black;
+    /* height: 100px; */
+    max-width: 1100px;
+    height: 92%;
+    margin: 0 auto;
+    align-items: center;
+    overflow: auto;
+}
+
+.containerB {
+    margin-top: 5px;
+    /* border: 1px solid black; */
+    /* height: 100px; */
+    max-width: 1100px;
+    width: 65%;
+    margin: 0 auto;
+    align-items: center;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    margin-top: 5px;
+    border: 1px solid black;
+    height: 110px;
+    max-width: 1100px;
+    margin: 20px auto;
+    width: 95%;
+}
+
+.schedulerText {
+    font-size: 32px;
+    font-family:"Work Sans";
+    font-weight: bold;
+}
+
+.schedulerBody {
+    font-size: 24px;
+    font-family:"Work Sans";
+    font-weight: normal;
+}
+
+.listText{
+    font-size: 24px;
+    font-family:"Work Sans";
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.containerB1{
+    width: 50%;
+    /* margin: 0 auto; */
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-left: 5px;
+    height: 92%;
+    align-items: center;
+    /* overflow: auto; */
+}
+
+.containerB1A{
+    /* width: 50%; */
+    /* margin: 0 auto; */
+    align-items: center;
+    height: 8%;
+    align-items: center;
+    /* overflow: auto; */
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    /* border-bottom: 1px solid black; */
+}
+
+.containerB1B {
+    /* width: 50%; */
+    /* margin: 0 auto; */
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-right: 5px;
+    height: 92%;
+    align-items: center;
+    /* overflow: auto; */
+}
+
+.B1Atext {
+    font-size: 18px;
+    font-family:"Work Sans";
+    font-weight: bold;
+}
+
+.containerB2 {
+    width: 50%;
+    /* margin: 0 auto; */
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-right: 5px;
+    height: 92%;
+    align-items: center;
+    /* overflow: auto; */
+}
+
+.cardPlace {
+    margin-top: 5px;
+    border: 2px dashed black;
+    height: 75px;
+    max-width: 1100px;
+    margin: 15px auto;
+    border-radius: 10px;
+    width: 85%;
+}
