@@ -56,6 +56,6 @@ apiWithAuth.interceptors.response.use(
 );
 
 export const fetcher = async (url) => {
-  const res = await api.get(url);
+  const res = await apiWithAuth.get(url);
   return res.data;
 };

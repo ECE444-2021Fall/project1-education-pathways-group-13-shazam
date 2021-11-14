@@ -1,40 +1,28 @@
-import { useEffect, useState } from 'react';
-
 import Router from 'next/router';
 import { fetcher } from '../api';
-import refreshTokens from './refresh';
+import { useEffect } from 'react';
 import useSWR from 'swr';
 
 // Pattern taken from https://github.com/vvo/iron-session/blob/main/examples/next.js/lib/useUser.js
 const useUser = (redirectTo = '', redirectIfFound = false) => {
-  const { data: user, mutate: mutateUser, error } = useSWR('/user', fetcher);
-  const [retried, setRetried] = useState(false);
+  const { data: user, mutate: mutateUser } = useSWR('/user', fetcher);
 
   useEffect(() => {
     // If user not found yet, or there is no redirect, do nothing
-    if ((!user && !error) || !redirectTo) {
+    if (!user || !redirectTo) {
       return;
     }
 
-    // If error is unauthorized, try to refresh the token
-    if (error && error.response && error.response.status === 401 && !retried) {
-      setRetried(true);
-      (async () => {
-        return await refreshTokens();
-      })();
-      mutateUser();
-    }
-
     // If user is found and redirectIfFound is set, redirect
-    else if (user && redirectIfFound && redirectTo) {
+    if (user && redirectIfFound && redirectTo) {
       Router.push(redirectTo);
     }
 
-    // Otherwise, redirect
-    else if ((!user || error) && redirectTo && !redirectIfFound) {
+    // If user is not found and redirectIfFound is not set, redirect
+    if (!user && redirectTo && !redirectIfFound) {
       Router.push(redirectTo);
     }
-  }, [user, mutateUser, error, retried, redirectTo, redirectIfFound]);
+  }, [user, redirectTo, redirectIfFound]);
 
   return { user, mutateUser };
 };
