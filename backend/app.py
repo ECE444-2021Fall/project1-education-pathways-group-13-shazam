@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 from flask import Flask
+from flask_cors import CORS
 
 from database.config import db_url
 from database.database import db, migrate
@@ -11,6 +12,8 @@ from utils.jwt import JWT_SECRET_KEY, jwt
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
+
+CORS(app)
 
 # Register routes
 app.register_blueprint(user, url_prefix="/user")
