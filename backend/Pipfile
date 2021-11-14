@@ -15,6 +15,12 @@ psycopg2-binary = "*"
 [dev-packages]
 black = "*"
 isort = "*"
+pandas = "*"
+networkx = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
