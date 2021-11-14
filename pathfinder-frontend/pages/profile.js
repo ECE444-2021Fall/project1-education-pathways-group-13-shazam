@@ -11,11 +11,28 @@ export default function Profile() {
         for (let i = 0; i < sections.length; i++) {
             if (sections[i].id === event.target.id) {
                 sections[i].classList.add(styles.active_section);
+                document.getElementById("details").innerHTML = "<h1>" + event.target.id + "</h1>" + "<br/><p>This is the user's " + event.target.id + "</p>";
             } else {
                 sections[i].classList.remove(styles.active_section);
             }
         }
-        document.getElementById("details").innerHTML = "<h1>" + event.target.id + "</h1>" + "<br/><p>This is the user's " + event.target.id + "</p>";
+    }
+    const setSection = (event) => {
+        let sections = document.getElementsByClassName(styles.section);
+        let profileSection = true;
+        for (let i = 1; i < sections.length; i++) {
+            if (document.URL.indexOf('#' + sections[i].id) > -1) {
+                sections[i].classList.add(styles.active_section);
+                profileSection = false;
+                document.getElementById("details").innerHTML = "<h1>" + sections[i].id + "</h1>" + "<br/><p>This is the user's " + sections[i].id + "</p>";
+            } else {
+                sections[i].classList.remove(styles.active_section);
+            }
+        }
+        if (profileSection) {
+            document.getElementById("details").innerHTML = "<h1>profile</h1><br/><p>This is the user's profile</p>";
+            sections[0].classList.add(styles.active_section);
+        }
     }
     
     return (
@@ -25,7 +42,7 @@ export default function Profile() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar/>
-            <main className={styles.main}>
+            <main className={styles.main} onLoad={setSection}>
                 <div className={styles.grid}>
                     <div className={[styles.card, styles.leftbar].join(' ')}>
                         <Image src="/profile-picture.svg" width={202} height={202}/>
@@ -33,15 +50,15 @@ export default function Profile() {
                             <h1>Firstname Lastname</h1>
                         </div>
                         <br/>
-                        <div id="profile" className={[styles.section, styles.active_section].join(' ')} onClick={switchSection}>Profile</div>
-                        <div id="schedule" className={styles.section} onClick={switchSection}>Schedule</div>
-                        <div id="settings" className={styles.section} onClick={switchSection}>Settings</div>
+                        <Link href=""><div id="profile" className={styles.section} onClick={switchSection}>Profile</div></Link>
+                        <Link href="#schedule"><div id="schedule" className={styles.section} onClick={switchSection}>Schedule</div></Link>
+                        <Link href="#settings"><div id="settings" className={styles.section} onClick={switchSection}>Settings</div></Link>
                     </div>
                     <div id="details" className={[styles.card, styles.rightbar].join(' ')}>
-                        <h1>profile</h1>
+                        <h1>Placeholder Text</h1>
                         <br/>
                         <p>
-                            This is the user's profile.
+                            This placeholder text.
                         </p>
                     </div>
                 </div>
