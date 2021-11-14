@@ -6,7 +6,7 @@ import refreshTokens from './refresh';
 import useSWR from 'swr';
 
 // Pattern taken from https://github.com/vvo/iron-session/blob/main/examples/next.js/lib/useUser.js
-export default useUser = (redirectTo = '', redirectIfFound = false) => {
+const useUser = (redirectTo = '', redirectIfFound = false) => {
   const { data: user, mutate: mutateUser, error } = useSWR('/user', fetcher);
   const [retried, setRetried] = useState(false);
 
@@ -17,7 +17,7 @@ export default useUser = (redirectTo = '', redirectIfFound = false) => {
     }
 
     // If error is unauthorized, try to refresh the token
-    if (error && error.response.status === 401 && !retried) {
+    if (error && error.response && error.response.status === 401 && !retried) {
       setRetried(true);
       (async () => {
         return await refreshTokens();
@@ -31,10 +31,12 @@ export default useUser = (redirectTo = '', redirectIfFound = false) => {
     }
 
     // Otherwise, redirect
-    else if ((!user || error) && redirectTo) {
+    else if ((!user || error) && redirectTo && !redirectIfFound) {
       Router.push(redirectTo);
     }
   }, [user, mutateUser, error, retried, redirectTo, redirectIfFound]);
 
   return { user, mutateUser };
 };
+
+export default useUser;

@@ -13,7 +13,7 @@ from utils.jwt import JWT_SECRET_KEY, jwt
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 
-CORS(app)
+CORS(app, supports_credentials=True)
 
 # Register routes
 app.register_blueprint(user, url_prefix="/user")

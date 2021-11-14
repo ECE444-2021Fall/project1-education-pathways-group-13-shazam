@@ -45,6 +45,10 @@
   @apply float-right;
 }
 
+.error_text {
+  @apply text-red-600;
+}
+
 #earth {
   @apply absolute;
   top: 15%;
