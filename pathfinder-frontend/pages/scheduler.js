@@ -1,8 +1,17 @@
 import styles from './scheduler.module.css';
 import NavBar from '../components/navbar';
-
+import api from '../services/index';
+import { useState, useCallback, useEffect } from 'react';
 
 function Scheduler() {
+    const [results, setResults] = useState([]);
+
+    useEffect(async () => {
+        const res = await api.getUserCart();
+        console.log(`res: ${res}`);
+        setResults(res);
+
+    },[]);
     return (
         <>
             <NavBar/>
@@ -29,30 +38,10 @@ function Scheduler() {
                         </div>
                     </div>
                     <div className={styles.containerA2}>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
-                        <div className={styles.card}>
-                            
-                        </div>
+                        {results.map(() => (
+                                <div className={styles.card}>
+                                </div>
+                            ))}
                     </div>
                 </div>
                 <div className={styles.containerB}>

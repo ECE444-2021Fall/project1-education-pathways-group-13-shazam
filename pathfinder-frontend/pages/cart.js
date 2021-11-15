@@ -1,8 +1,20 @@
 import styles from './cart.module.css';
 import NavBar from '../components/navbar';
+import api from '../services/index';
+import { useState, useCallback, useEffect } from 'react';
 
 
 function Cart() {
+    const [results, setResults] = useState([]);
+
+    useEffect(async () => {
+        const res = await api.getUserCart();
+        console.log(`res: ${res}`);
+        setResults(res);
+
+    },[]);
+
+
     return (
         <>
             <NavBar/>
@@ -15,18 +27,10 @@ function Cart() {
             </div>
             <div className={styles.containerWrapper}>
                 <div className={styles.container}>
-                    <div className={styles.card}>
-                        
-                    </div>
-                    <div className={styles.card}>
-                        
-                    </div>
-                    <div className={styles.card}>
-                        
-                    </div>
-                    <div className={styles.card}>
-                        
-                    </div>
+                    {results.map(() => (
+                            <div className={styles.card}>
+                            </div>
+                        ))}
                 </div>
             </div>
         </>
