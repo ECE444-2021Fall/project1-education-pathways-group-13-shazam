@@ -1,24 +1,17 @@
 import styles from '../styles/Navbar.module.css';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+
 
 import { useState, useCallback } from 'react';
 
 function NavBar() {
     const [query, setQuery] = useState('');
-    const router = useRouter();
 
     const onQuery = useCallback((e) => {
         console.log(e.target.value);
         const value = e.target.value;
         setQuery(value);
     });
-
-    const onSearch = useCallback(() => {
-        console.log("push");
-        router.push("/search",`/search?query=${query}`);
-    },[query]);
-
 
     return (
         <>
@@ -32,7 +25,9 @@ function NavBar() {
                             <button className={styles.explore}>Explore</button>
                             <form>
                                 <input className={styles.searchbar} value={query} onChange={onQuery} placeholder="Search courses..."/>
-                                <button className={styles.searchicon} onClick={onSearch}>🔍</button>
+                                <Link href={{pathname: '/search', query: {query: query}}}>
+                                    <button className={styles.searchicon} >🔍</button>
+                                </Link>
                             </form>
                         </div>
                     </div>
