@@ -5,24 +5,24 @@ import useSWR from 'swr';
 
 // Pattern taken from https://github.com/vvo/iron-session/blob/main/examples/next.js/lib/useUser.js
 const useUser = (redirectTo = '', redirectIfFound = false) => {
-  const { data: user, mutate: mutateUser } = useSWR('/user/', fetcher);
+  const { data: user, mutate: mutateUser, error } = useSWR('/user/', fetcher);
 
   useEffect(() => {
     // If user not found yet, or there is no redirect, do nothing
-    if (!user || !redirectTo) {
+    if ((!user && !error) || !redirectTo) {
       return;
     }
 
     // If user is found and redirectIfFound is set, redirect
-    if (user && redirectIfFound && redirectTo) {
+    if (user && !error && redirectIfFound && redirectTo) {
       Router.push(redirectTo);
     }
 
     // If user is not found and redirectIfFound is not set, redirect
-    if (!user && redirectTo && !redirectIfFound) {
+    if ((!user || error) && redirectTo && !redirectIfFound) {
       Router.push(redirectTo);
     }
-  }, [user, redirectTo, redirectIfFound]);
+  }, [user, error, redirectTo, redirectIfFound]);
 
   return { user, mutateUser };
 };

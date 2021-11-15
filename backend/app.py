@@ -29,3 +29,4 @@ jwt.init_app(app)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
 app.config["JWT_COOKIE_SECURE"] = True
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
+app.config["JWT_COOKIE_SAMESITE"] = "None"
