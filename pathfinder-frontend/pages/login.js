@@ -18,6 +18,7 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = async (data) => {
+    setErrorMessage('');
     try {
       mutateUser(await login(data.email, data.password));
     } catch (err) {
@@ -80,10 +81,10 @@ export default function Login() {
                   })}
                 />
                 {errors.email && errors.email.type === 'required' && (
-                  <p className={styles.error_text}>email is required</p>
+                  <p className={styles.field_alert}>email is required</p>
                 )}
                 {errors.email && errors.email.type === 'pattern' && (
-                  <p className={styles.error_text}>email address format is invalid</p>
+                  <p className={styles.field_alert}>email address format is invalid</p>
                 )}
               </div>
               <br />
@@ -96,13 +97,16 @@ export default function Login() {
                   {...register('password', { required: true, minLength: 8 })}
                 />
                 {errors.password && errors.password.type === 'required' && (
-                  <p className={styles.error_text}>password is required</p>
+                  <p className={styles.field_alert}>password is required</p>
                 )}
                 {errors.password && errors.password.type === 'minLength' && (
-                  <p className={styles.error_text}>password must be at least 8 characters</p>
+                  <p className={styles.field_alert}>password must be at least 8 characters</p>
                 )}
               </div>
-              <br />
+
+              <div>
+                <p className={styles.error_text}>{errorMessage}</p>
+              </div>
               <div className={styles.button_bar}>
                 <button className={styles.form_left} type="submit">
                   Log In

@@ -69,3 +69,12 @@ def refresh():
     response = jsonify({"msg": "ok"})
     set_access_cookies(response, access_token)
     return response, HTTPStatus.OK
+
+
+@auth.route("/logout", methods=["POST"])
+@jwt_required
+def logout():
+    response = jsonify({"msg": "ok"})
+    set_access_cookies(response, "")
+    set_refresh_cookies(response, "")
+    return response, HTTPStatus.OK

@@ -49,6 +49,10 @@
   @apply text-red-600;
 }
 
+.field_alert {
+  @apply text-sm text-red-400 text-left;
+}
+
 #earth {
   @apply absolute;
   top: 15%;
