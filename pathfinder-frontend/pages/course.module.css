@@ -35,21 +35,21 @@
 
 .courseTitle {
     font-size: 32px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: bold;
     margin: 50px 10px 10px 30px;
 }
 
 .courseSubtitle {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: normal;
     margin: 0px 10px 10px 30px;
 }
 
 .courseProf {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: normal;
     margin: 0px 10px 10px 30px;
 }
@@ -69,35 +69,35 @@
 
 .about{
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: bold;
     margin: 0px 5px 0px 40px;
 }
 
 .instructor {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: lighter;
     margin: 0px 5px;
 }
 
 .syllabus {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: lighter;
     margin: 0px 5px;
 }
 
 .reviews {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: lighter;
     margin: 0px 5px;
 }
 
 .faq {
     font-size: 28;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: lighter;
     margin: 0px 5px;
 }

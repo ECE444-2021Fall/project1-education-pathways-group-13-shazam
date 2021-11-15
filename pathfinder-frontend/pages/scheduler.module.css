@@ -51,7 +51,7 @@
 
 .a1Text {
     font-size: 18px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: bold;
 }
 
@@ -90,19 +90,19 @@
 
 .schedulerText {
     font-size: 32px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: bold;
 }
 
 .schedulerBody {
     font-size: 24px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: normal;
 }
 
 .listText{
     font-size: 24px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: normal;
     margin-left: 10px;
 }
@@ -144,7 +144,7 @@
 
 .B1Atext {
     font-size: 18px;
-    font-family:"Work Sans";
+    /*font-family:"Work Sans"*/
     font-weight: bold;
 }
 

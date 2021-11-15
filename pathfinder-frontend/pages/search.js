@@ -1,5 +1,6 @@
 import styles from './search.module.css';
 import NavBar from '../components/navbar';
+import Container from "../components/container";
 import api from '../services/index';
 import { useRouter } from 'next/router'
 
@@ -43,9 +44,8 @@ function Search() {
             </div>
             <div className={styles.containerWrapper}>
                 <div className={styles.container}>
-                    {results.map(() => (
-                        <div className={styles.card}>
-                        </div>
+                    {results.map((res) => (
+                        <Container courses={res}/>
                     ))}
                 </div>
             </div>
