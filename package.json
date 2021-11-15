@@ -1,0 +1,21 @@
+{
+  "name": "pathfinder",
+  "version": "0.1.0",
+  "description": "A new centralized tool for students to plan courses at the University of Toronto.",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ECE444-2021Fall/project1-education-pathways-group-13-shazam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ECE444-2021Fall/project1-education-pathways-group-13-shazam/issues"
+  },
+  "homepage": "https://github.com/ECE444-2021Fall/project1-education-pathways-group-13-shazam#readme",
+  "devDependencies": {
+    "husky": "^7.0.0"
+  }
+}
