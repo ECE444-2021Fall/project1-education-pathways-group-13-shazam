@@ -3,17 +3,26 @@ import NavBar from '../../components/navbar';
 import Review from '../../components/review';
 import getReviews from '../../services/getReviews';
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 function Course() {
   const router = useRouter();
   const { code } = router.query;
-  const reviews = getReviews(code);
+
+  const [reviews, setReviews] = useState([]);
+  useEffect(async () => {
+    if (!router.isReady) return;
+    const res = await getReviews(code);
+    setReviews(res);
+  }, [router.isReady]);
 
   let averageRating = 0;
   for (let i = 0; i < reviews.length; i++) {
     averageRating += reviews[i].rating;
   }
-  averageRating /= reviews.length;
+  if (reviews.length > 0) {
+    averageRating /= reviews.length;
+  }
 
   const switchSection = (event) => {
     let sections = document.getElementsByClassName(styles.section);
