@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { useState, useCallback } from 'react';
 
 function NavBar() {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState('all');
 
     const onQuery = useCallback((e) => {
         console.log(e.target.value);
         const value = e.target.value;
+        if(!value.length) return setQuery("all");
         setQuery(value);
     });
 
@@ -24,10 +25,17 @@ function NavBar() {
                         <div className={styles.searching}>
                             <button className={styles.explore}>Explore</button>
                             <form>
-                                <input className={styles.searchbar} value={query} onChange={onQuery} placeholder="Search courses..."/>
-                                <Link href={{pathname: '/search', query: {query: query}}}>
+                                <input className={styles.searchbar} value={query == "all" ? "" : query} onChange={onQuery} placeholder="Search courses..."/>
+                                { 
+                                    query != "all" ?
+                                    <Link href={{pathname: '/search', query: {query: query}}}>
                                     <button className={styles.searchicon} >🔍</button>
-                                </Link>
+                                    </Link>
+                                    :
+                                    <Link href={{pathname: '/search'}}>
+                                        <button className={styles.searchicon} >🔍</button>
+                                    </Link>
+                                }
                             </form>
                         </div>
                     </div>
