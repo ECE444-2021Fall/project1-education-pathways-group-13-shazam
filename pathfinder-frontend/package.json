@@ -13,9 +13,12 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "axios": "^0.24.0",
+    "js-cookie": "^3.0.1",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.19.5",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.7",

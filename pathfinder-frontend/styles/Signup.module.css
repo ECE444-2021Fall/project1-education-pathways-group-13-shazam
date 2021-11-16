@@ -34,7 +34,7 @@
 }
 
 .field_alert {
-  @apply text-sm text-red-400 text-left;
+  @apply text-sm text-red-400 text-left break-normal;
 }
 
 .field_bar {
@@ -51,6 +51,10 @@
 
 .form_right {
   @apply float-right;
+}
+
+.error_text {
+  @apply text-red-600;
 }
 
 #earth {
