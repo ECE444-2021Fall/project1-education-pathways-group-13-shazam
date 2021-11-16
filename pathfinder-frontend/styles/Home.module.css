@@ -1,35 +1,35 @@
 .container {
-    @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
-    background-color: #E8EEF2;
-    min-width: 850px;
+  @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
+  background-color: #e8eef2;
+  min-width: 850px;
 }
 
 .topbar {
-    @apply clear-both px-4;
+  @apply clear-both px-4;
 }
 
 .appname {
-    @apply text-3xl p-3 font-bold float-left;
+  @apply text-3xl p-3 font-bold float-left;
 }
 
 .login {
-    @apply text-xl float-right py-4 font-bold;
+  @apply text-xl float-right py-4 font-bold;
 }
 
 .login a {
-    @apply mx-4;
+  @apply mx-4;
 }
 
 .main {
-    @apply justify-center items-center flex-wrap flex flex-1;
+  @apply justify-center items-center flex-wrap flex flex-1;
 }
 
 .grid {
-    @apply inline-block align-top justify-center items-center flex-wrap flex z-10;
+  @apply inline-block align-top justify-center items-center flex-wrap flex z-10;
 }
 
 .card {
-    @apply rounded-2xl p-6 bg-white bg-opacity-75 w-4/12;
+  @apply rounded-2xl p-6 bg-white bg-opacity-75 w-4/12;
 }
 
 .card h1 {
@@ -41,45 +41,44 @@
 }
 
 #earth {
-    @apply absolute;
-    top: 15%;
-    left: 34%;
+  @apply absolute;
+  top: 15%;
+  left: 34%;
 }
 
 #galaxy1 {
-    @apply absolute;
-    top: 32%;
-    left: 44%;
+  @apply absolute;
+  top: 32%;
+  left: 44%;
 }
 
 #ship {
-    @apply absolute;
-    top: 10%;
-    left: 81%;
+  @apply absolute;
+  top: 10%;
+  left: 81%;
 }
 
 #galaxy2 {
-    @apply absolute;
-    top: 7%;
-    left: 0%;
+  @apply absolute;
+  top: 7%;
+  left: 0%;
 }
 
 #planet1 {
-    @apply absolute;
-    top: 31%;
-    right: 0%;
+  @apply absolute;
+  top: 31%;
+  right: 0%;
 }
 
 #planet2 {
-    @apply absolute;
-    top: 47%;
-    left: 15%;
+  @apply absolute;
+  top: 47%;
+  left: 15%;
 }
 
 #ground {
-    @apply absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45%;
+  @apply absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
 }
-
