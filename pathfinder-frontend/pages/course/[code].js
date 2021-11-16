@@ -1,10 +1,19 @@
 import styles from '../../styles/Course.module.css';
 import NavBar from '../../components/navbar';
+import Review from '../../components/review';
+import getReviews from '../../services/getReviews';
 import { useRouter } from 'next/router';
 
 function Course() {
   const router = useRouter();
   const { code } = router.query;
+  const reviews = getReviews(code);
+
+  let averageRating = 0;
+  for (let i = 0; i < reviews.length; i++) {
+    averageRating += reviews[i].rating;
+  }
+  averageRating /= reviews.length;
 
   const switchSection = (event) => {
     let sections = document.getElementsByClassName(styles.section);
@@ -12,11 +21,9 @@ function Course() {
       if (sections[i].id === event.target.id) {
         sections[i].classList.add(styles.selectedSection);
         document.getElementById(`${sections[i].id}Container`).hidden = false;
-        console.log(`${sections[i].id}Container shown`);
       } else {
         sections[i].classList.remove(styles.selectedSection);
         document.getElementById(`${sections[i].id}Container`).hidden = true;
-        console.log(`${sections[i].id}Container hide`);
       }
     }
   };
@@ -28,7 +35,9 @@ function Course() {
         <div className={styles.headerContainer}>
           <div className={styles.courseTitle}>{code}</div>
           <div className={styles.courseSubtitle}>Course Name</div>
-          <div className={styles.courseSubtitle}>0.0/10 Stars | 0 Ratings</div>
+          <div className={styles.courseSubtitle}>
+            {Math.round(averageRating * 10) / 10}/10 Stars | {reviews.length} Ratings
+          </div>
         </div>
       </div>
       <div className={styles.headingsContainer}>
@@ -45,14 +54,16 @@ function Course() {
         </div>
       </div>
       <div className={styles.containerWrapper}>
-        <div id="aboutContainer" className={styles.container}>
-          About
-        </div>
-        <div id="requirementsContainer" className={styles.container} hidden>
-          Requirements
-        </div>
-        <div id="reviewsContainer" className={styles.container} hidden>
-          Reviews
+        <div className={styles.container}>
+          <div id="aboutContainer">About</div>
+          <div id="requirementsContainer" hidden>
+            Requirements
+          </div>
+          <div id="reviewsContainer" hidden>
+            {reviews.map((res, index) => (
+              <Review reviews={res} key={`${index}`} />
+            ))}
+          </div>
         </div>
       </div>
     </>
