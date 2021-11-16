@@ -33,7 +33,7 @@ function Cart() {
             <div className={styles.containerWrapper}>
                 <div className={styles.container}>
                     {results.map((course,index,_arr) => (
-                            <Container courses={course} observer={setDirty} key={`${course.name}-${index}`} />
+                            <Container courses={course} observer={{val: dirty, callback: setDirty}} key={`${course.name}-${index}`} />
                         ))}
                 </div>
             </div>

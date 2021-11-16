@@ -13,7 +13,7 @@ function Container({courses, observer}) {
         setInCart(inUserCart == undefined ? false : true);
         console.log("in ssearch:" + res);
         setCart(res);
-    },[]);
+    },[observer]);
 
     const addToCart = useCallback(async () => {
         let newCart = cart;
@@ -31,7 +31,7 @@ function Container({courses, observer}) {
             setInCart(true);
         }
         await api.postUserCart(newCart);
-        if(observer) observer(true);
+        if(observer) observer.callback(true);
     }, [cart,inCart,observer]);
 
     const courseA = {...courses};
