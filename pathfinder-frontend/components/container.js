@@ -1,8 +1,40 @@
 import styles from './container.module.css';
+import api from '../services/index';
+import { useState, useCallback, useEffect } from 'react';
 
 
-function Container(props) {
-    const courseA = {...props.courses};
+function Container({courses, observer}) {
+    const [inCart, setInCart] = useState(false);
+    const [cart, setCart] = useState([]);
+
+    useEffect(async () => {
+        const res = await api.getUserCart();
+        const inUserCart = res.find(e => e.name == courses?.name);
+        setInCart(inUserCart == undefined ? false : true);
+        console.log("in ssearch:" + res);
+        setCart(res);
+    },[]);
+
+    const addToCart = useCallback(async () => {
+        let newCart = cart;
+        console.log('add to cart');
+        if(inCart) {
+            newCart = cart.filter(e => e.name != courses?.name);
+            setCart(newCart);
+            setInCart(false);
+        }
+        else {
+            console.log('not in cart - so add');
+            cart.push(courses);
+            newCart = cart;
+            setCart(cart);
+            setInCart(true);
+        }
+        await api.postUserCart(newCart);
+        if(observer) observer(true);
+    }, [cart,inCart,observer]);
+
+    const courseA = {...courses};
     // console.log(courseA);
     return (
         <div className={styles.card}>
@@ -45,8 +77,8 @@ function Container(props) {
                             courseA?.department
                         }
                     </div>
-                    <button className={styles.button}>
-                        Add to cart
+                    <button className={styles.button} onClick={addToCart}>
+                        { inCart ? "Remove from cart" : "Add to cart"}
                     </button>
                 </div>
             </div>

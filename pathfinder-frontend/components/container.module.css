@@ -40,9 +40,7 @@
     width: 150px;
     border: 1px solid rgb(229, 231, 232);
     box-shadow: rgb(0 0 0 / 16%) 0px 0px 9px -1px;
-    border-radius: 2
-px
-;
+    border-radius: 2px;
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(208,178,212,1) 33%, rgba(148,187,233,1) 100%);
 }
@@ -96,7 +94,7 @@ remove at end of project */
 }
 
 .button {
-    padding: 5px 0px;
+    padding: 5px 10px;
     font-size: 14px;
     border-radius: 0px;
     /*font-family:"Work Sans"*/

@@ -9,6 +9,8 @@
     max-width: 1090px;
     width: 73%;
     margin: 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccd1d9;
 }
 
 .containerWrapper {
@@ -19,7 +21,7 @@
 
 .container {
     margin-top: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* height: 100px; */
     max-width: 1100px;
     width: 75%;
@@ -37,7 +39,7 @@
 }
 
 .cartText {
-    font-size: 32px;
+    font-size: 28px;
     /*font-family:"Work Sans"*/
     font-weight: bold;
 }

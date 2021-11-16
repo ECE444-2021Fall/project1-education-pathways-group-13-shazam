@@ -47,7 +47,7 @@ class Service {
         return Promise.resolve();
     }
     async postUserCart(data) {
-        return this.postUser('',data);
+        return this.postUser('',{cart: data});
     } 
 }
 
