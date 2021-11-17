@@ -55,3 +55,7 @@
 .deleteReviewButton {
     @apply mt-3 mb-10;
 }
+
+.requisite {
+    @apply p-1 m-2 rounded-xl;
+}

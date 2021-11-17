@@ -1,10 +1,26 @@
+const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+export const getCourseInfo = async (code) => {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+  };
+
+  const res = await fetch(`${apiUrl}course/${code}`, requestOptions);
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.resolve(0);
+  }
+};
+
 export const getReviews = async (code) => {
   var requestOptions = {
     method: 'GET',
     redirect: 'follow',
   };
 
-  const res = await fetch(`http://localhost:5000/reviews/${code}`, requestOptions);
+  const res = await fetch(`${apiUrl}reviews/${code}`, requestOptions);
   if (res.ok) {
     return res.json();
   } else {
@@ -30,7 +46,7 @@ export const addReview = async (course, user, rating, comment) => {
     redirect: 'follow',
   };
 
-  return await fetch('http://localhost:5000/reviews/', requestOptions);
+  return await fetch(`${apiUrl}reviews/`, requestOptions);
 };
 
 export const deleteReview = async (course, user) => {
@@ -49,5 +65,5 @@ export const deleteReview = async (course, user) => {
     redirect: 'follow',
   };
 
-  return await fetch('http://localhost:5000/reviews/', requestOptions);
+  return await fetch(`${apiUrl}reviews/`, requestOptions);
 };
