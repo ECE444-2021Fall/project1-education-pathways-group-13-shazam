@@ -35,8 +35,6 @@ apiWithAuth.interceptors.request.use(
 apiWithAuth.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.log('error: ');
-    console.log(error);
     const originalRequest = error.config;
 
     // If the error is unauthorized, and we haven't already tried refreshing the token

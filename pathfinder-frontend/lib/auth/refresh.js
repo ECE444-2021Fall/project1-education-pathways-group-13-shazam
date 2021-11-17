@@ -4,7 +4,6 @@ const refreshTokens = async () => {
   try {
     // Refresh endpoint requires a CSRF refresh token
     const token = localStorage.getItem('refresh_csrf_token');
-    console.log(`token: ${token}`);
     if (!token) {
       return false;
     }
