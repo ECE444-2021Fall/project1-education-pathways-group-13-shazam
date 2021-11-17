@@ -8,6 +8,7 @@ from database.database import db, migrate
 from routes.auth import auth
 from routes.user import user
 from routes.reviews import reviews
+from routes.course import course
 from utils.bcrypt import bcrypt
 from utils.jwt import JWT_SECRET_KEY, jwt
 
@@ -20,6 +21,7 @@ CORS(app, supports_credentials=True)
 app.register_blueprint(user, url_prefix="/user")
 app.register_blueprint(auth, url_prefix="/auth")
 app.register_blueprint(reviews, url_prefix="/reviews")
+app.register_blueprint(course, url_prefix="/course")
 
 # Initialize extensions
 db.init_app(app)
