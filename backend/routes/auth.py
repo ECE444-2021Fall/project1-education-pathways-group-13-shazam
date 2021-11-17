@@ -5,6 +5,7 @@ from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
     current_user,
+    get_csrf_token,
     jwt_required,
     set_access_cookies,
     set_refresh_cookies,
@@ -48,12 +49,17 @@ def login():
     access_token = create_access_token(identity=db_user)
     refresh_token = create_refresh_token(identity=db_user)
 
+    access_csrf_token = get_csrf_token(access_token)
+    refresh_csrf_token = get_csrf_token(refresh_token)
+
     # Set cookies
     response = jsonify(
         {
             "email": db_user.email,
             "first_name": db_user.first_name,
             "last_name": db_user.last_name,
+            "access_csrf_token": access_csrf_token,
+            "refresh_csrf_token": refresh_csrf_token,
         }
     )
     set_access_cookies(response, access_token)
@@ -66,7 +72,8 @@ def login():
 @jwt_required(refresh=True)
 def refresh():
     access_token = create_access_token(identity=current_user)
-    response = jsonify({"msg": "ok"})
+    access_csrf_token = get_csrf_token(access_token)
+    response = jsonify({"msg": "ok", "access_csrf_token": access_csrf_token})
     set_access_cookies(response, access_token)
     return response, HTTPStatus.OK
 

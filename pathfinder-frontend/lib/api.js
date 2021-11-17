@@ -18,7 +18,7 @@ apiWithAuth.interceptors.request.use(
   (config) => {
     // We only need CSRF tokens on request that can change data
     if (config.method !== 'get') {
-      const token = Cookie.get('csrf_access_token');
+      const token = localStorage.getItem('access_csrf_token');
       if (token) {
         config.headers['X-CSRF-TOKEN'] = token;
       }

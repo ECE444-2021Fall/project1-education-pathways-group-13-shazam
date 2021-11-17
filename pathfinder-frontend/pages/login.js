@@ -66,54 +66,51 @@ export default function Login() {
             <h1>Welcome Back</h1>
             <br />
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  size="35"
-                  {...register('email', {
-                    required: true,
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'email is invalid',
-                    },
-                  })}
-                />
-                {errors.email && errors.email.type === 'required' && (
-                  <p className={styles.field_alert}>email is required</p>
-                )}
-                {errors.email && errors.email.type === 'pattern' && (
-                  <p className={styles.field_alert}>email address format is invalid</p>
-                )}
-              </div>
-              <br />
-              <div>
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                  size="35"
-                  {...register('password', { required: true, minLength: 8 })}
-                />
-                {errors.password && errors.password.type === 'required' && (
-                  <p className={styles.field_alert}>password is required</p>
-                )}
-                {errors.password && errors.password.type === 'minLength' && (
-                  <p className={styles.field_alert}>password must be at least 8 characters</p>
-                )}
-              </div>
+              <div className={styles.form_grid}>
+                <div className={styles.form_item_2_col}>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    size="35"
+                    {...register('email', {
+                      required: true,
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'email is invalid',
+                      },
+                    })}
+                  />
+                  {errors.email && errors.email.type === 'required' && (
+                    <p className={styles.field_alert}>email is required</p>
+                  )}
+                  {errors.email && errors.email.type === 'pattern' && (
+                    <p className={styles.field_alert}>email address format is invalid</p>
+                  )}
+                </div>
+                <div className={styles.form_item_2_col}>
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    size="35"
+                    {...register('password', { required: true, minLength: 8 })}
+                  />
+                  {errors.password && errors.password.type === 'required' && (
+                    <p className={styles.field_alert}>password is required</p>
+                  )}
+                  {errors.password && errors.password.type === 'minLength' && (
+                    <p className={styles.field_alert}>password must be at least 8 characters</p>
+                  )}
+                </div>
 
-              <div>
-                <p className={styles.error_text}>{errorMessage}</p>
-              </div>
-              <div className={styles.button_bar}>
-                <button className={styles.form_left} type="submit">
-                  Log In
-                </button>
+                <div className={styles.form_item_2_col}>
+                  <p className={styles.error_text}>{errorMessage}</p>
+                </div>
                 <Link href="/signup" passHref>
-                  <button className={styles.form_right}>Sign Up</button>
+                  <button type="button">Sign Up</button>
                 </Link>
+                <button type="submit">Log In</button>
               </div>
             </form>
           </div>

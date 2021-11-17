@@ -67,13 +67,13 @@ export default function Signup() {
         <div id={styles.ground}>
           <Image src="/ground.svg" alt="ground" layout="fill" />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.grid} i>
           <div className={styles.card}>
             <h1>Get Started</h1>
             <br />
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className={styles.field_bar}>
-                <div className={styles.form_left}>
+              <div className={styles.form_grid}>
+                <div>
                   <input
                     id="first_name"
                     type="text"
@@ -85,7 +85,7 @@ export default function Signup() {
                     <p className={styles.field_alert}>first name is required</p>
                   )}
                 </div>
-                <div className={styles.form_right}>
+                <div>
                   <input
                     id="last_name"
                     type="text"
@@ -97,31 +97,28 @@ export default function Signup() {
                     <p className={styles.field_alert}>last name is required</p>
                   )}
                 </div>
-              </div>
-              <br />
-              <div>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  size="35"
-                  {...register('email', {
-                    required: true,
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'email is invalid',
-                    },
-                  })}
-                />
-                {errors.email && errors.email.type === 'required' && (
-                  <p className={styles.field_alert}>email is required</p>
-                )}
-                {errors.email && errors.email.type === 'pattern' && (
-                  <p className={styles.field_alert}>email address format is invalid</p>
-                )}
-              </div>
-              <div className={styles.field_bar}>
-                <div className={styles.form_left}>
+                <div className={styles.form_item_2_col}>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    size="35"
+                    {...register('email', {
+                      required: true,
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'email is invalid',
+                      },
+                    })}
+                  />
+                  {errors.email && errors.email.type === 'required' && (
+                    <p className={styles.field_alert}>email is required</p>
+                  )}
+                  {errors.email && errors.email.type === 'pattern' && (
+                    <p className={styles.field_alert}>email address format is invalid</p>
+                  )}
+                </div>
+                <div>
                   <input
                     id="password"
                     type="password"
@@ -136,7 +133,7 @@ export default function Signup() {
                     <p className={styles.field_alert}>password must be at least 8 characters</p>
                   )}
                 </div>
-                <div className={styles.form_right}>
+                <div>
                   <input
                     id="confirm_password"
                     type="password"
@@ -154,19 +151,13 @@ export default function Signup() {
                     <p className={styles.field_alert}>passwords do not match</p>
                   )}
                 </div>
-              </div>
-              <div>
-                <p className={styles.error_text}>{errorMessage}</p>
-              </div>
-              <div className={styles.button_bar}>
+                <div className={styles.form_item_2_col}>
+                  <p className={styles.error_text}>{errorMessage}</p>
+                </div>
                 <Link href="/login" passHref>
-                  <button className={styles.form_left} type="button">
-                    Already have an account
-                  </button>
+                  <button type="button">Have an account?</button>
                 </Link>
-                <button className={styles.form_right} type="submit">
-                  Sign Up
-                </button>
+                <button type="submit">Sign Up</button>
               </div>
             </form>
           </div>
