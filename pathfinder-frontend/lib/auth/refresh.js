@@ -1,4 +1,3 @@
-
 import { api } from '../api';
 
 const refreshTokens = async () => {
@@ -16,6 +15,10 @@ const refreshTokens = async () => {
     };
 
     const res = await api.post('/auth/refresh', {}, requestConfig);
+
+    // Update CSRF tokens in localStorage
+    localStorage.setItem('access_csrf_token', res.data.access_csrf_token);
+
     return res.status === 200;
   } catch (err) {
     return false;

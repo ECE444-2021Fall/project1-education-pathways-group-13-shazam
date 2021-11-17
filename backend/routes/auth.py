@@ -79,7 +79,7 @@ def refresh():
 
 
 @auth.route("/logout", methods=["POST"])
-@jwt_required
+@jwt_required()
 def logout():
     response = jsonify({"msg": "ok"})
     set_access_cookies(response, "")
