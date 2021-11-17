@@ -17,7 +17,7 @@
 }
 
 .grid {
-  @apply inline-block align-top justify-center items-center flex-wrap flex z-10;
+  @apply align-top justify-center z-10;
 }
 
 .card {
@@ -30,27 +30,23 @@
 
 .card input {
   background-color: #c4c4c4;
-  @apply text-xl p-3 mb-5;
+  @apply text-xl p-3 rounded-lg w-full;
 }
 
 .field_alert {
-  @apply text-sm text-red-400 text-left break-normal;
+  @apply text-sm text-red-400 text-left pt-1;
 }
 
 .field_bar {
   @apply clear-both;
 }
 
-.button_bar {
-  @apply clear-both my-10;
+.form_grid {
+  @apply grid grid-cols-2 gap-x-3 gap-y-4 items-start;
 }
 
-.form_left {
-  @apply float-left;
-}
-
-.form_right {
-  @apply float-right;
+.form_item_2_col {
+  @apply col-span-2;
 }
 
 .error_text {
