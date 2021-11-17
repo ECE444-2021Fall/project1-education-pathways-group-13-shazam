@@ -1,5 +1,4 @@
 from database.database import db
-from models.course import Course
 
 
 class Reviews(db.Model):
