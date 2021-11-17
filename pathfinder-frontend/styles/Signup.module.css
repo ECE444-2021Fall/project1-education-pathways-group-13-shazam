@@ -17,7 +17,7 @@
 }
 
 .grid {
-  @apply align-top justify-center z-10;
+  @apply align-top justify-center z-10 w-500;
 }
 
 .card {
@@ -42,7 +42,7 @@
 }
 
 .form_grid {
-  @apply grid grid-cols-2 gap-x-3 gap-y-4 items-start;
+  @apply grid grid-cols-2 gap-x-3 gap-y-4 items-start max-w-full;
 }
 
 .form_item_2_col {

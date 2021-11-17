@@ -67,7 +67,7 @@ export default function Signup() {
         <div id={styles.ground}>
           <Image src="/ground.svg" alt="ground" layout="fill" />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.grid} i>
           <div className={styles.card}>
             <h1>Get Started</h1>
             <br />
