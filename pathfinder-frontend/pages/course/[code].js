@@ -2,13 +2,15 @@ import Head from 'next/head';
 import styles from '../../styles/Course.module.css';
 import NavBar from '../../components/navbar';
 import Review from '../../components/review';
-import { getReviews, addReview } from '../../services/reviewsAPI';
+import { getReviews, addReview, deleteReview } from '../../services/reviewsAPI';
+import useUser from '../../lib/auth/useUser';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 function Course() {
   const router = useRouter();
   const { code } = router.query;
+  const { user, mutateUser } = useUser('');
 
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(1);
@@ -16,19 +18,32 @@ function Course() {
     if (!router.isReady) return;
     const res = await getReviews(code);
     setReviews(res);
+
+    let deleteButtons = document.getElementsByClassName(styles.deleteReviewButton);
+    for (let i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].addEventListener('click', removeSelf);
+    }
   }, [router.isReady, refresh]);
 
   let averageRating = 0;
   let noReviewAllowed = false;
   for (let i = 0; i < reviews.length; i++) {
     averageRating += reviews[i].rating;
-    if (reviews[i].user === 'someone@example.com') {
+    if (!user || reviews[i].user === user.email) {
       noReviewAllowed = true;
     }
   }
   if (reviews.length > 0) {
     averageRating /= reviews.length;
   }
+
+  const removeSelf = (event) => {
+    if (confirm('Are you sure you want to delete your review?')) {
+      deleteReview(code, user.email)
+        .then((response) => setRefresh((prev) => prev + 1))
+        .catch((error) => console.log('error', error));
+    }
+  };
 
   const switchSection = (event) => {
     let sections = document.getElementsByClassName(styles.section);
@@ -52,7 +67,7 @@ function Course() {
     event.preventDefault();
     const rating = document.getElementById('rating').value;
     const comment = document.getElementById('comment').value;
-    addReview(router.query.code, 'someone@example.com', rating, comment)
+    addReview(router.query.code, user.email, rating, comment)
       .then((response) => setRefresh((prev) => prev + 1))
       .catch((error) => console.log('error', error));
 
@@ -131,7 +146,7 @@ function Course() {
                 <button type="submit">Submit</button>
               </form>
               {reviews.map((res, index) => (
-                <Review reviews={res} number={'review' + index} key={`${index}`} />
+                <Review reviews={res} key={`${index}`} />
               ))}
             </div>
           </div>

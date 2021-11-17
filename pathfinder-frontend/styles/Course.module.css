@@ -51,3 +51,7 @@
 .comment {
     @apply border-gray-400 border-solid border-2 p-1 mb-3;
 }
+
+.deleteReviewButton {
+    @apply mt-3 mb-10;
+}

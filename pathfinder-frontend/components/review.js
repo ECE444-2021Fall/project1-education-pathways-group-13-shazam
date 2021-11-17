@@ -1,20 +1,20 @@
 import { useRouter } from 'next/router';
-import { deleteReview } from '../services/reviewsAPI';
-import styles from '../styles/Review.module.css';
+import useUser from '../lib/auth/useUser';
+import styles from '../styles/Course.module.css';
 
 function Review(props) {
   const reviews = { ...props.reviews };
   const router = useRouter();
   const { code } = router.query;
 
-  let hide = props.reviews.user !== 'someone@example.com';
-  const removeSelf = (event) => {
-    deleteReview(code, 'someone@example.com')
-      .then((response) => (document.getElementById(props.number).hidden = true))
-      .catch((error) => console.log('error', error));
-  };
+  let hide = true;
+  const { user, mutateUser } = useUser('');
+  if (user && user.email === props.reviews.user) {
+    hide = false;
+  }
+
   return (
-    <div id={props.number}>
+    <>
       <strong>Rating</strong>: {reviews?.rating} / 10
       <br />
       <strong>Date</strong>: {reviews?.date}
@@ -23,11 +23,11 @@ function Review(props) {
       <br />
       {reviews?.comment}
       <br />
-      <button onClick={removeSelf} className={styles.deleteReviewButton} hidden={hide}>
+      <button className={styles.deleteReviewButton} hidden={hide}>
         Delete
       </button>
       <br />
-    </div>
+    </>
   );
 }
 
