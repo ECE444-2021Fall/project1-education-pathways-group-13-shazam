@@ -108,7 +108,7 @@ export default function Login() {
                   <p className={styles.error_text}>{errorMessage}</p>
                 </div>
                 <Link href="/signup" passHref>
-                  <button>Sign Up</button>
+                  <button type="button">Sign Up</button>
                 </Link>
                 <button type="submit">Log In</button>
               </div>
