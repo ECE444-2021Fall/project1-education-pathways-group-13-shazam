@@ -75,7 +75,7 @@ def add_to_cart():
 
     # Don't do anything if course is already in the user's cart
     cart_course = Cart.query.filter_by(
-        user=current_user.email, course=course
+        user=current_user.email, course=course.code
     ).one_or_none()
     if cart_course:
         return Response(status=HTTPStatus.OK)
@@ -95,7 +95,6 @@ def remove_from_cart():
     if "code" not in course_data:
         abort(HTTPStatus.BAD_REQUEST, "Missing course code")
 
-    # Don't do anything if course is already in the user's cart
     cart_course = Cart.query.filter_by(
         user=current_user.email, course=course_data["code"]
     ).one_or_none()
