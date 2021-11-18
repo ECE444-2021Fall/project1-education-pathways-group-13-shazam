@@ -1,106 +1,124 @@
 .card {
-    margin-top: 5px;
-    /* border: 1px solid black; */
-    height: 200px;
-    max-width: 1100px;
-    margin: 5px auto;
-    width: 95%;
-    display: flex;
+  margin-top: 5px;
+  /* border: 1px solid black; */
+  height: 200px;
+  max-width: 1100px;
+  margin: 5px auto;
+  width: 95%;
+  display: flex;
 }
 
 .imageContainer {
-    width: 20%;
-    min-width: 170px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid black; */
-    border-bottom: 1px solid #ccd1d9;
+  width: 20%;
+  min-width: 170px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  border-bottom: 1px solid #ccd1d9;
 }
 
 .bodyContainer {
-    width: 60%;
-    border-bottom: 1px solid #ccd1d9;
-    padding: 10px 0px;
-    display: flex;
-    align-items: center;
+  width: 60%;
+  border-bottom: 1px solid #ccd1d9;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .buttonsContainer {
-    width: 20%;
-    border-bottom: 1px solid #ccd1d9;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+  width: 20%;
+  border-bottom: 1px solid #ccd1d9;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .image {
-    height: 150px;
-    width: 150px;
-    border: 1px solid rgb(229, 231, 232);
-    box-shadow: rgb(0 0 0 / 16%) 0px 0px 9px -1px;
-    border-radius: 2px;
-    background: rgb(238,174,202);
-    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(208,178,212,1) 33%, rgba(148,187,233,1) 100%);
+  height: 150px;
+  width: 150px;
+  border: 1px solid rgb(229, 231, 232);
+  box-shadow: rgb(0 0 0 / 16%) 0px 0px 9px -1px;
+  border-radius: 2 px;
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(208, 178, 212, 1) 33%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
 /* body and buttons being kept in case we need them
 remove at end of project */
 .body {
-    /* height: 100%; */
-    /* border: 1px solid black; */
-    /* vertical-align: middle; */
+  /* height: 100%; */
+  /* border: 1px solid black; */
+  /* vertical-align: middle; */
 }
 
 .buttons {
-    /* height: 100%; */
-    /* border: 1px solid black; */
+  /* height: 100%; */
+  /* border: 1px solid black; */
 }
 
 .name {
-    font-size: 22px;
-    /*font-family:"Work Sans"*/
-    font-weight: bold;
-    margin: 0px 10px 0px 10px;
+  font-size: 22px;
+  /*font-family:"Work Sans"*/
+  font-weight: bold;
+  margin: 0px 10px 0px 10px;
 }
 
 .title {
-    font-size: 16px;
-    /*font-family:"Work Sans"*/
-    font-weight: lighter;
-    margin: 0px 10px 10px 10px;
+  font-size: 16px;
+  /*font-family:"Work Sans"*/
+  font-weight: lighter;
+  margin: 0px 10px 10px 10px;
 }
 
-.description{
-    font-size: 14px;
-    /*font-family:"Work Sans"*/
-    font-weight: normal;
-    margin: 0px 10px 10px 10px;
+.description {
+  font-size: 14px;
+  /*font-family:"Work Sans"*/
+  font-weight: normal;
+  margin: 0px 10px 10px 10px;
 }
 
 .courseLevel {
-    font-size: 16px;
-    /*font-family:"Work Sans"*/
-    font-weight: bold;
-    margin: 0px 10px 10px 10px;
+  font-size: 16px;
+  /*font-family:"Work Sans"*/
+  font-weight: bold;
+  margin: 0px 10px 10px 10px;
 }
 
 .department {
-    font-size: 14px;
-    /*font-family:"Work Sans"*/
-    font-weight: normal;
-    margin: 0px 10px 10px 10px;
+  font-size: 14px;
+  /*font-family:"Work Sans"*/
+  font-weight: normal;
+  margin: 0px 10px 10px 10px;
 }
 
 .button {
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 0px;
-    /*font-family:"Work Sans"*/
-    border: none;
-    font-weight: bold;
-    margin: 0px 10px 10px 10px;
-    color: black;
-    background-color: #E8EEF2;
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 0px;
+  /*font-family:"Work Sans"*/
+  border: none;
+  font-weight: bold;
+  margin: 0px 10px 10px 10px;
+  color: black;
+  background-color: #e8eef2;
+}
+
+.remove_button {
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 0px;
+  /*font-family:"Work Sans"*/
+  border: none;
+  font-weight: bold;
+  margin: 0px 10px 10px 10px;
+  color: black;
+
+  @apply bg-red-500 hover:bg-red-400;
 }
