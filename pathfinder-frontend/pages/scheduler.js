@@ -196,7 +196,7 @@ function Scheduler() {
                                     >
                                         {results.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}`} index={index}>
+                                                <Draggable draggableId={`${index}`} index={index} key={`${index}`} >
                                                     {
                                                         (providede) => (
                                                             <div className={styles.card}
@@ -235,7 +235,7 @@ function Scheduler() {
                                         >
                                             {sem1.first.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-firstA`} index={index}>
+                                                <Draggable draggableId={`${index}-firstA`} index={index} key={`${index}`} >
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -265,7 +265,7 @@ function Scheduler() {
                                         >
                                             {sem1.second.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-secondA`} index={index}>
+                                                <Draggable draggableId={`${index}-secondA`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -295,7 +295,7 @@ function Scheduler() {
                                         >
                                             {sem1.third.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-thirdA`} index={index}>
+                                                <Draggable draggableId={`${index}-thirdA`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -325,7 +325,7 @@ function Scheduler() {
                                         >
                                             {sem1.fourth.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-fourthA`} index={index}>
+                                                <Draggable draggableId={`${index}-fourthA`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -355,7 +355,7 @@ function Scheduler() {
                                         >
                                             {sem1.fifth.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-fifthA`} index={index}>
+                                                <Draggable draggableId={`${index}-fifthA`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -394,7 +394,7 @@ function Scheduler() {
                                         >
                                             {sem2.firstB.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-firstB`} index={index}>
+                                                <Draggable draggableId={`${index}-firstB`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -424,7 +424,7 @@ function Scheduler() {
                                         >
                                             {sem2.secondB.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-secondB`} index={index}>
+                                                <Draggable draggableId={`${index}-secondB`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -454,7 +454,7 @@ function Scheduler() {
                                         >
                                             {sem2.thirdB.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-thirdB`} index={index}>
+                                                <Draggable draggableId={`${index}-thirdB`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -484,7 +484,7 @@ function Scheduler() {
                                         >
                                             {sem2.fourthB.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-fourthB`} index={index}>
+                                                <Draggable draggableId={`${index}-fourthB`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
@@ -514,7 +514,7 @@ function Scheduler() {
                                         >
                                             {sem2.fifthB.map((v,index,_) => (
 
-                                                <Draggable draggableId={`${index}-fifthB`} index={index}>
+                                                <Draggable draggableId={`${index}-fifthB`} index={index} key={`${index}`}>
                                                     {
                                                         (providede) => (
                                                             <div className={styles.minicard}
