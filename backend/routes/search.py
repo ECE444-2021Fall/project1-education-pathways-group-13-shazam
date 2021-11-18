@@ -20,11 +20,11 @@ def search_courses():
             results = Course.query.filter().limit(10*int(page)).all()
     else:
         if page == '' or page == None:
-            results = Course.query.filter(Course.name.like(query) | Course.description.like(f'%{query}%') |
-            Course.code.like(query)).limit(10).all()
+            results = Course.query.filter(Course.name.like(f'%{query}%') | Course.description.like(f'%{query}%') |
+            Course.code.like(f'%{query}%')).limit(10).all()
         else:
-            results = Course.query.filter(Course.name.like(query) | Course.description.like(f'%{query}%') |
-            Course.code.like(query)).limit(10*int(page)).all()
+            results = Course.query.filter(Course.name.like(f'%{query}%') | Course.description.like(f'%{query}%') |
+            Course.code.like(f'%{query}%')).limit(10*int(page)).all()
 
     if len(results) == 0:
         abort(HTTPStatus.BAD_REQUEST, "No course found")
