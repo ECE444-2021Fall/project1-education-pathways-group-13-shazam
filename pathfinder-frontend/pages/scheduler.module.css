@@ -204,3 +204,8 @@
 .success {
     color: green;
 }
+
+.beta {
+    font-size: 16px;
+    font-weight: normal;
+}

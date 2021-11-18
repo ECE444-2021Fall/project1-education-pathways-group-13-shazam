@@ -1,8 +1,10 @@
 import styles from './scheduler.module.css';
 import NavBar from '../components/navbar';
-import api from '../services/index';
+// import api from '../services/index';
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
+import useSWR from 'swr';
+import { api, fetcher } from '../lib/api';
 
 function Scheduler() {
     const [results, setResults] = useState([]);
@@ -21,12 +23,24 @@ function Scheduler() {
         fifthB: []
     })
 
-    useEffect(async () => {
-        const res = await api.getUserCart();
-        console.log(`res: ${res}`);
-        setResults(res);
-
-    },[]);
+    const { data: cart } = useSWR('/user/cart', fetcher);
+  
+    useEffect(() => {
+      (async () => {
+        if (cart && cart.courses) {
+          const newCartContents = await Promise.all(
+            cart.courses.map(async (course) => {
+              const res = await api.get(`/course/${course}`);
+              if (res.data) {
+                return res.data;
+              }
+            })
+          );
+          console.log(newCartContents);
+          setResults(newCartContents);
+        }
+      })();
+    }, [cart]);
 
     const complete = useMemo(() => {
         return sem1.first?.length && sem1.second?.length &&
@@ -157,7 +171,7 @@ function Scheduler() {
             <div className={styles.header}>
                 <div className={styles.headerContainer}>
                     <div className={styles.schedulerText}>
-                        Scheduler
+                        Scheduler <sup className={styles.beta}>Beta</sup>
                     </div>
                     <div className={styles.schedulerBody}>
                         The scheduler works in the following way:
