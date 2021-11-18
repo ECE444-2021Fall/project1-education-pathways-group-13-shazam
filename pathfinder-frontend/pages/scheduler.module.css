@@ -82,26 +82,48 @@
 .card {
     margin-top: 5px;
     border: 1px solid black;
+    border-radius: 10px;
     height: 110px;
     max-width: 1100px;
     margin: 20px auto;
     width: 95%;
+    padding: 10px;
+}
+
+.name {
+    font-size: 16px;
+    /*font-family:"Work Sans"*/
+    font-weight: bold;
+}
+
+.title {
+    font-size: 16px;
+    /*font-family:"Work Sans"*/
+    font-weight: normal;
+}
+
+.minicard {
+    /* margin-top: 5px; */
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 2px 10px;
 }
 
 .schedulerText {
-    font-size: 32px;
+    font-size: 28px;
     /*font-family:"Work Sans"*/
     font-weight: bold;
 }
 
 .schedulerBody {
-    font-size: 24px;
+    font-size: 18px;
     /*font-family:"Work Sans"*/
     font-weight: normal;
 }
 
 .listText{
-    font-size: 24px;
+    font-size: 16px;
     /*font-family:"Work Sans"*/
     font-weight: normal;
     margin-left: 10px;
@@ -143,7 +165,7 @@
 }
 
 .B1Atext {
-    font-size: 18px;
+    font-size: 16px;
     /*font-family:"Work Sans"*/
     font-weight: bold;
 }
@@ -167,4 +189,18 @@
     margin: 15px auto;
     border-radius: 10px;
     width: 85%;
+    padding: 5px;
+}
+
+
+.eligibility {
+    margin: 10px 0px;
+}
+
+.fail {
+    color: red;
+}
+
+.success {
+    color: green;
 }

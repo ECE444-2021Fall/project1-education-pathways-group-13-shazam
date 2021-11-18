@@ -5,7 +5,6 @@ service: pathways-backend
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
-
 custom:
   wsgi:
     app: app.app
