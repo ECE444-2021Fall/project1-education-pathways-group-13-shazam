@@ -5,6 +5,7 @@ from flask import Blueprint, Response, abort, request
 from flask.json import jsonify
 from flask_jwt_extended import current_user, jwt_required
 from models.cart import Cart
+from models.course import Course
 from models.user import User
 
 user = Blueprint("user", __name__)
@@ -65,10 +66,10 @@ def get_cart():
 @jwt_required()
 def add_to_cart():
     course_data = request.get_json()
-    if "code" not in course_data:
+    if "course" not in course_data:
         abort(HTTPStatus.BAD_REQUEST, "Missing course code")
 
-    course = Course.query.filter_by(code=course_data["code"]).one_or_none()
+    course = Course.query.filter_by(code=course_data["course"]).one_or_none()
     if not course:
         abort(HTTPStatus.BAD_REQUEST, "Course not found")
 
@@ -80,7 +81,7 @@ def add_to_cart():
         return Response(status=HTTPStatus.OK)
 
     # Add course to cart
-    new_cart_item = Cart(user=current_user.email, course=course)
+    new_cart_item = Cart(user=current_user.email, course=course.code)
     db.session.add(new_cart_item)
     db.session.commit()
 
@@ -91,11 +92,11 @@ def add_to_cart():
 @jwt_required()
 def remove_from_cart():
     course_data = request.get_json()
-    if "code" not in course_data:
+    if "course" not in course_data:
         abort(HTTPStatus.BAD_REQUEST, "Missing course code")
 
     cart_course = Cart.query.filter_by(
-        user=current_user.email, course=course_data["code"]
+        user=current_user.email, course=course_data["course"]
     ).one_or_none()
     if not cart_course:
         return Response(status=HTTPStatus.OK)
