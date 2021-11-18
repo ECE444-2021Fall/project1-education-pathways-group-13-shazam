@@ -2,6 +2,10 @@ from database.database import db
 
 
 class Course(db.Model):
+    # we need to index code, name and description to make them
+    # all searchable in whoosh
+    __searchable__ = ['code', 'name', 'description']
+
     code = db.Column(db.String, primary_key=True)
     name = db.Column(db.String)
     level = db.Column(db.Integer)

@@ -16,6 +16,20 @@ export const getCourseInfo = async (code) => {
   }
 };
 
+export const getSearchResults = async (query,page) => {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+  };
+
+  const res = await fetch(`${apiUrl}/search/?query=${query}&&page=${page}`, requestOptions);
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.resolve(0);
+  }
+};
+
 export const getReviews = async (code) => {
   var requestOptions = {
     method: 'GET',

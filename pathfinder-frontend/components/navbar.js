@@ -45,6 +45,9 @@ function NavBar() {
             </div>
           </div>
           <div className={styles.sectionB}>
+            <Link href="/scheduler">
+              <a>Scheduler <sup>beta</sup></a>
+            </Link>
             <div hidden={!user}>
               <Link href="/cart">
                 <a>Cart</a>
