@@ -10,7 +10,7 @@ function NavBar() {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
-  const { mutateUser } = useUser();
+  const { user, mutateUser } = useUser();
 
   const onQuery = useCallback((e) => {
     console.log(e.target.value);
@@ -33,10 +33,9 @@ function NavBar() {
         <div className={styles.navbar}>
           <div className={styles.sectionA}>
             <div className={styles.titleText}>
-              <Link href="/">PathFinder</Link>
+              <Link href="/profile">PathFinder</Link>
             </div>
             <div className={styles.searching}>
-              <button className={styles.explore}>Explore</button>
               <form>
                 <input className={styles.searchbar} value={query} onChange={onQuery} placeholder="Search courses..." />
                 <Link href={{ pathname: '/search', query: { query: query } }}>
@@ -49,14 +48,24 @@ function NavBar() {
             <Link href="/scheduler">
               <a>Scheduler <sup>beta</sup></a>
             </Link>
-            <Link href="/cart">
-              <a>Cart</a>
-            </Link>
-            <Link href="/profile">
-              <a>Profile</a>
-            </Link>
-            <div className="cursor-pointer" onClick={onLogout}>
+            <div hidden={!user}>
+              <Link href="/cart">
+                <a>Cart</a>
+              </Link>
+              <Link href="/profile">
+                <a>Profile</a>
+              </Link>
+            </div>
+            <div id="logout-section" hidden={!user} className="cursor-pointer" onClick={onLogout}>
               <a>Log Out</a>
+            </div>
+            <div hidden={user}>
+              <Link href="/login">
+                <a>Log In</a>
+              </Link>
+              <Link href="/signup">
+                <a>Sign Up</a>
+              </Link>
             </div>
           </div>
         </div>
