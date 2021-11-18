@@ -20,7 +20,7 @@ function Course() {
 
   const removeSelf = (event) => {
     if (confirm('Are you sure you want to delete your review?')) {
-      deleteReview(code, user.email)
+      deleteReview(code)
         .then((response) => setRefresh((prev) => prev + 1))
         .catch((error) => console.log('error', error));
     }
@@ -30,7 +30,7 @@ function Course() {
     if (!router.isReady) return;
 
     const cres = await getCourseInfo(code);
-    if (!cres) Router.push(`/${code}`);
+    if (!cres) Router.push(`/${code}`); // give a 404 error
     setCourseInfo(cres);
 
     const res = await getReviews(code);
@@ -76,7 +76,7 @@ function Course() {
     event.preventDefault();
     const rating = document.getElementById('rating').value;
     const comment = document.getElementById('comment').value;
-    addReview(router.query.code, user.email, rating, comment)
+    addReview(code, rating, comment)
       .then((response) => setRefresh((prev) => prev + 1))
       .catch((error) => console.log('error', error));
 
@@ -160,6 +160,7 @@ function Course() {
               ) : (
                 <> None</>
               )}
+              <br />
               <br />
               <strong>Minors</strong>:
               {courseInfo.minors && courseInfo.minors.length > 0 ? (

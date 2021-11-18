@@ -1,3 +1,5 @@
+import { apiWithAuth } from '../lib/api';
+
 const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const getCourseInfo = async (code) => {
@@ -6,7 +8,7 @@ export const getCourseInfo = async (code) => {
     redirect: 'follow',
   };
 
-  const res = await fetch(`${apiUrl}course/${code}`, requestOptions);
+  const res = await fetch(`${apiUrl}/course/${code}`, requestOptions);
   if (res.ok) {
     return res.json();
   } else {
@@ -20,7 +22,7 @@ export const getReviews = async (code) => {
     redirect: 'follow',
   };
 
-  const res = await fetch(`${apiUrl}reviews/${code}`, requestOptions);
+  const res = await fetch(`${apiUrl}/reviews/${code}`, requestOptions);
   if (res.ok) {
     return res.json();
   } else {
@@ -28,42 +30,20 @@ export const getReviews = async (code) => {
   }
 };
 
-export const addReview = async (course, user, rating, comment) => {
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-
-  var raw = JSON.stringify({
+export const addReview = async (course, rating, comment) => {
+  var newReview = {
     course: course,
-    user: user,
     rating: rating,
     comment: comment,
-  });
-
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow',
   };
 
-  return await fetch(`${apiUrl}reviews/`, requestOptions);
+  return await apiWithAuth.post('/reviews/', newReview);
 };
 
-export const deleteReview = async (course, user) => {
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-
-  var raw = JSON.stringify({
+export const deleteReview = async (course) => {
+  var deleteRequest = {
     course: course,
-    user: user,
-  });
-
-  var requestOptions = {
-    method: 'DELETE',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow',
   };
 
-  return await fetch(`${apiUrl}reviews/`, requestOptions);
+  return await apiWithAuth.delete('/reviews/', { data: deleteRequest });
 };
