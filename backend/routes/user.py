@@ -59,6 +59,7 @@ def get_authenticated_user():
 def get_cart():
     cart_contents = Cart.query.filter_by(user=current_user.email).all()
     cart_items = [item.course for item in cart_contents]
+    cart_items.sort()
     return jsonify({"courses": cart_items})
 
 
