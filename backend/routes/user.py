@@ -4,6 +4,7 @@ from database.database import db
 from flask import Blueprint, Response, abort, request
 from flask.json import jsonify
 from flask_jwt_extended import current_user, jwt_required
+from models.cart import Cart
 from models.user import User
 
 user = Blueprint("user", __name__)
