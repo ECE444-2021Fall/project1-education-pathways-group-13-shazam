@@ -1,0 +1,53 @@
+.header {
+    background-color: rgba(255,255,255,0.8);
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    @apply z-10 sticky top-0 h-16;
+    
+}
+
+.navbar {
+    height: 65px;
+    max-width: 1307px;
+    @apply flex clear-both h-16 mx-auto px-3;
+}
+
+.titleText {
+    /* margin config is to make title
+     a little further away from explore */
+    font-size: 1.875rem;
+    @apply font-bold;
+}
+.explore {
+    background-color: #E8EEF2;
+    @apply mr-2 h-10 w-24 rounded-xl;
+}
+.searchbar{
+    border-width: 1px;
+    @apply p-2 rounded-l-xl border-solid border-black h-10;
+}
+.searchicon{
+    background-color: #E8EEF2;
+    @apply text-center p-0 rounded-r-xl rounded-l-none h-10 w-10 border-l-0;
+}
+
+.sectionA {
+    @apply flex self-center;
+}
+
+.searching {
+    min-width: 200px;
+    @apply ml-20 flex items-center;
+}
+
+.searching form {
+    @apply flex;
+}
+
+.sectionB {
+    @apply w-full flex self-center items-center justify-end;
+}
+
+.sectionB a {
+    @apply mx-4 font-bold;
+}
+

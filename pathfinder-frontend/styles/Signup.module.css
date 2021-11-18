@@ -53,6 +53,10 @@
   @apply text-red-600;
 }
 
+.error_text {
+  @apply text-red-600;
+}
+
 #earth {
   @apply absolute;
   top: 15%;
