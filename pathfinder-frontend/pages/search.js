@@ -1,22 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import Container from '../components/container';
 import NavBar from '../components/navbar';
 import api from '../services/index';
+import {getSearchResults} from '../services/courseAPI';
 import styles from './search.module.css';
 import { useRouter } from 'next/router';
 
 function Search() {
   const router = useRouter();
+  const [page,setPage] = useState(1);
   const [results, setResults] = useState([]);
 
   useEffect(async () => {
-    const q = router.query.query;
+    const q = router.query.query || '';
     console.log(`New search: ${q}`);
-    const res = await api.search(q);
+    const res = await getSearchResults(q, page);
     console.log(`res: ${res}`);
     setResults(res);
-  }, [router.query.query]);
+  }, [router.query.query, page]);
+
+  const onClick = useCallback(() => {
+    const newval = page + 1;
+    setPage(newval);
+    return;
+  },[page]);
 
   return (
     <>
@@ -41,6 +49,9 @@ function Search() {
           {results.map((res) => (
             <Container key={res.code} courses={res} />
           ))}
+          <button className={styles.loadmore} onClick={onClick}>
+            Load More
+          </button>
         </div>
       </div>
     </>
