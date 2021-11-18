@@ -1,23 +1,23 @@
 .container {
-    @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
-    background-color: #E8EEF2;
-    min-width: 850px;
+  @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
+  background-color: #e8eef2;
+  min-width: 850px;
 }
 
 .main {
-    @apply justify-center items-center flex-wrap flex flex-1;
+  @apply justify-center items-center flex-wrap flex flex-1;
 }
 
 .grid {
-    @apply w-8/12 inline-block align-top justify-start items-start flex-wrap flex py-10;
+  @apply w-8/12 inline-block align-top justify-start items-start flex-wrap flex py-10;
 }
 
 .card {
-    @apply p-6 bg-white bg-opacity-75;
+  @apply p-6 bg-white bg-opacity-75;
 }
 
 .card h1 {
-  @apply text-3xl font-bold;
+  @apply text-3xl font-bold mt-2;
 }
 
 .card p {
@@ -25,17 +25,17 @@
 }
 
 .leftbar {
-    @apply w-4/12 p-0;
+  @apply w-4/12 p-0;
 }
 
 .section {
-    @apply font-bold my-2 cursor-pointer text-gray-400;
+  @apply font-bold my-2 cursor-pointer text-gray-400;
 }
 
 .active_section {
-    @apply text-black;
+  @apply text-black;
 }
 
 .rightbar {
-    @apply w-7/12 rounded-2xl border-solid border-black border;
+  @apply w-7/12 rounded-2xl border-solid border-black border;
 }

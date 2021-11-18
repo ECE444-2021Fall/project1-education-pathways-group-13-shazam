@@ -14,7 +14,7 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const { mutateUser } = useUser('/test_auth', true);
+  const { mutateUser } = useUser('/profile', true);
   const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = async (data) => {
