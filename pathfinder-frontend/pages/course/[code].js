@@ -1,13 +1,13 @@
+import Router, { useRouter } from 'next/router';
+import { addReview, deleteReview, getCourseInfo, getReviews } from '../../services/courseAPI';
+import { useEffect, useState } from 'react';
+
 import Head from 'next/head';
-import styles from '../../styles/Course.module.css';
+import Link from 'next/link';
 import NavBar from '../../components/navbar';
 import Review from '../../components/review';
-import { getCourseInfo, getReviews, addReview, deleteReview } from '../../services/courseAPI';
+import styles from '../../styles/Course.module.css';
 import useUser from '../../lib/auth/useUser';
-import { useRouter } from 'next/router';
-import Router from 'next/router';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
 function Course() {
   const router = useRouter();
@@ -99,7 +99,7 @@ function Course() {
             <div className={styles.courseTitle}>{code}</div>
             <div className={styles.courseSubtitle}>{courseInfo.name}</div>
             <div className={styles.courseSubtitle}>
-              {Math.round(averageRating * 10) / 10}/10 Stars | {reviews.length} Reviews
+              {averageRating === 0 ? '-' : Math.round(averageRating * 10) / 10}/10 Stars | {reviews.length} Reviews
             </div>
           </div>
         </div>
