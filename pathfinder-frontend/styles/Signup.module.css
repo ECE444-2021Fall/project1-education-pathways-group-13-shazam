@@ -5,39 +5,56 @@
 }
 
 .topbar {
-  @apply clear-both px-4;
-}
-
-.appname {
-  @apply text-3xl p-3 font-bold float-left;
-}
-
-.login {
-  @apply text-xl float-right py-4 font-bold;
-}
-
-.login a {
-  @apply mx-4;
+  @apply px-4;
 }
 
 .main {
   @apply justify-center items-center flex-wrap flex flex-1;
 }
 
+.appname {
+  @apply text-3xl p-3 font-bold float-left;
+}
+
 .grid {
-  @apply inline-block align-top justify-center items-center flex-wrap flex z-10;
+  @apply align-top justify-center z-10 w-500;
 }
 
 .card {
-  @apply rounded-2xl p-6 bg-white bg-opacity-75 w-4/12;
+  @apply rounded-2xl p-6 bg-white bg-opacity-75 text-center;
 }
 
 .card h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold mb-5;
 }
 
-.card p {
-  @apply text-lg;
+.card input {
+  background-color: #c4c4c4;
+  @apply text-xl p-3 rounded-lg w-full;
+}
+
+.field_alert {
+  @apply text-sm text-red-400 text-left pt-1;
+}
+
+.field_bar {
+  @apply clear-both;
+}
+
+.form_grid {
+  @apply grid grid-cols-2 gap-x-3 gap-y-4 items-start max-w-full;
+}
+
+.form_item_2_col {
+  @apply col-span-2;
+}
+
+.error_text {
+  @apply text-red-600;
+}
+
+.error_text {
+  @apply text-red-600;
 }
 
 #earth {

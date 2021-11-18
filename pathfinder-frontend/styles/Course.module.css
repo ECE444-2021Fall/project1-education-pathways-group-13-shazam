@@ -1,0 +1,61 @@
+.header {
+    background-image: linear-gradient(to right, #b2caed, #95d2e8, #8bd6d4, #9ed6b6, #c1d19b);
+    @apply pb-11 mb-12 flex justify-center;
+}
+
+.headerContainer {
+    @apply max-w-5xl w-9/12;
+}
+
+.containerWrapper {
+    @apply flex justify-center;
+}
+
+.container {
+    border: 1px;
+    @apply p-5 max-w-5xl w-9/12 rounded-xl border-gray-400 border-solid;
+}
+
+.courseTitle {
+    @apply mt-12 mb-2.5 ml-7 font-bold text-3xl;
+}
+
+.courseSubtitle {
+    @apply my-2.5 ml-7 text-lg;
+}
+
+.headings {
+    @apply flex;
+}
+
+.headingsContainer{
+    @apply flex mb-2.5 justify-center;
+}
+
+.section {
+    @apply mx-1.5 font-light text-lg cursor-pointer;
+}
+
+.selectedSection {
+    @apply mx-1.5 font-bold text-lg cursor-pointer;
+}
+
+.reviewButton {
+    @apply mb-3;
+}
+
+.reviewForm {
+    @apply my-4;
+}
+
+.comment {
+    @apply border-gray-400 border-solid border-2 p-1 mb-3;
+}
+
+.deleteReviewButton {
+    @apply mt-3 mb-10;
+}
+
+.requisite {
+    @apply p-1 m-2 rounded-xl;
+}

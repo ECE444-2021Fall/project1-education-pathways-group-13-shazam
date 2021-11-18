@@ -1,0 +1,101 @@
+.container {
+  @apply min-h-screen flex flex-col bg-no-repeat bg-bottom relative;
+  background-color: #e8eef2;
+  min-width: 850px;
+}
+
+.topbar {
+  @apply px-4;
+}
+
+.main {
+  @apply justify-center items-center flex-wrap flex flex-1;
+}
+
+.appname {
+  @apply text-3xl p-3 font-bold float-left;
+}
+
+.grid {
+  @apply align-top justify-center z-10 w-500;
+}
+
+.card {
+  @apply rounded-2xl p-6 bg-white bg-opacity-75 text-center;
+}
+
+.card h1 {
+  @apply text-4xl font-bold mb-5;
+}
+
+.card input {
+  background-color: #c4c4c4;
+  @apply text-xl p-3 rounded-lg w-full;
+}
+
+.form_grid {
+  @apply grid grid-cols-2 gap-x-3 gap-y-4 items-start max-w-full;
+}
+
+.form_item_2_col {
+  @apply col-span-2;
+}
+
+.error_text {
+  @apply text-red-600;
+}
+
+.field_alert {
+  @apply text-sm text-red-400 text-left pt-1;
+}
+
+.error_text {
+  @apply text-red-600;
+}
+
+.field_alert {
+  @apply text-sm text-red-400 text-left;
+}
+
+#earth {
+  @apply absolute;
+  top: 15%;
+  left: 34%;
+}
+
+#galaxy1 {
+  @apply absolute;
+  top: 32%;
+  left: 44%;
+}
+
+#ship {
+  @apply absolute;
+  top: 10%;
+  left: 81%;
+}
+
+#galaxy2 {
+  @apply absolute;
+  top: 7%;
+  left: 0%;
+}
+
+#planet1 {
+  @apply absolute;
+  top: 31%;
+  right: 0%;
+}
+
+#planet2 {
+  @apply absolute;
+  top: 47%;
+  left: 15%;
+}
+
+#ground {
+  @apply absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+}
