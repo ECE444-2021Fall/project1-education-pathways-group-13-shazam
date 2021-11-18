@@ -33,7 +33,7 @@ function NavBar() {
         <div className={styles.navbar}>
           <div className={styles.sectionA}>
             <div className={styles.titleText}>
-              <Link href="/">PathFinder</Link>
+              <Link href="/profile">PathFinder</Link>
             </div>
             <div className={styles.searching}>
               <button className={styles.explore}>Explore</button>
