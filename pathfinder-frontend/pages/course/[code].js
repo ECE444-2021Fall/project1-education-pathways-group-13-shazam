@@ -44,6 +44,9 @@ function Course() {
 
   let averageRating = 0;
   let noReviewAllowed = false;
+  if (!user) {
+    noReviewAllowed = true;
+  }
   for (let i = 0; i < reviews.length; i++) {
     averageRating += reviews[i].rating;
     if (!user || reviews[i].user === user.email) {
